@@ -1,0 +1,11 @@
+[
+  {
+    "warning_id": "warn_e8955743b68f",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
+    "line": 5,
+    "column": 12,
+    "message": "Dereference of null pointer (loaded from variable 'p')",
+    "checker": "core.NullDereference",
+    "category": "core"
+  }
+]

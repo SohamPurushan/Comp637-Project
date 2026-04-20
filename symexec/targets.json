@@ -1,0 +1,7 @@
+[
+  {
+    "source_file": "example_null_03.c",
+    "target_file": "symexec/harnesses/example_null_03_klee.c",
+    "target_line": 5
+  }
+]
