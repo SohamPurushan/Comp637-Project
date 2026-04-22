@@ -19,7 +19,7 @@ DEFAULT_FINAL_OUTPUT = RESULTS_DIR / "pipeline_results.json"
 
 # --- KLEE / LLVM toolchain ---
 # Using Homebrew LLVM (installed at /opt/homebrew/opt/llvm)
-CLANG_BIN = "/opt/homebrew/opt/llvm/bin/clang"
+CLANG_BIN = "/usr/bin/clang"
 LLVM_LINK_BIN = "/opt/homebrew/opt/llvm/bin/llvm-link"
 
 # KLEE via Docker (start Docker Desktop first, then run: docker pull klee/klee:3.1)
