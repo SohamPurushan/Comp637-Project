@@ -1,0 +1,842 @@
+{
+  "data/pilot/secure/149046-v1.0.0/src/fmt1-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149048-v2.0.0/src/fmt-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149050-v1.0.0/src/mem-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149052-v1.0.0/src/race-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149054-v2.0.0/src/tain-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149056-v1.0.0/src/ahdec1-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149058-v1.0.0/src/ahgets1-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149060-v2.0.0/src/ahscpy1-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149062-v2.0.0/src/fmt3-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149064-v2.0.0/src/fmt5-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149066-v1.0.0/src/gets1-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149068-v2.0.0/src/gets2-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149070-v1.0.0/src/into2-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149072-v2.0.0/src/mem1-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149074-v1.0.0/src/mem2-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149076-v1.0.0/src/mem3-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149078-v2.0.0/src/scpy2-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149080-v1.0.0/src/scpy7-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149082-v2.0.0/src/scpy8-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149084-v1.0.0/src/scpy9-ok.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149086-v1.0.0/src/heapinspection-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149088-v1.0.0/src/stack_overflow-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149090-v1.0.0/src/uninitialized_variable-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149092-v1.0.0/src/Unintentional_pointer_scaling-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149094-v2.0.0/src/cgic.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149094-v2.0.0/src/xss_basic-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149096-v2.0.0/src/sql_select-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149098-v1.0.0/src/sql_array_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149100-v2.0.0/src/sql_scope-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149102-v1.0.0/src/race_basic_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149104-v1.0.0/src/race_fctptr_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149106-v1.0.0/src/Use_of_hardcoded_password1-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149108-v1.0.0/src/dble_free_local_flow_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149110-v1.0.0/src/dble_free_loop_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149112-v1.0.0/src/fmt_string_local_container_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149114-v2.0.0/src/fmt_string_local_control_flow-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149116-v1.0.0/src/hardcoded_pass_buffer_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149118-v3.0.0/src/hardcoded_pass_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149120-v1.0.0/src/hardcoded_pass_local_flow_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149122-v3.0.0/src/hardcoded_pass_loop-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149124-v2.0.0/src/heap_overflow_array-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149126-v1.0.0/src/heap_overflow_cplx_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149128-v2.0.0/src/improper_null_term_basic-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149130-v2.0.0/src/improper_null_term_basic_@alias-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149132-v2.0.0/src/improper_null_term_basic_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149134-v1.0.0/src/improper_null_term_basic_taint_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149136-v2.0.0/src/leftover_debug-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149138-v2.0.0/src/misused_string_fct-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149140-v1.0.0/src/misused_string_fct_@alias_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149142-v2.0.0/src/misused_string_fct_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149144-v2.0.0/src/misused_string_fct_scope-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149146-v1.0.0/src/misused_string_fct_taint_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149148-v2.0.0/src/null_deref_@alias-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149150-v2.0.0/src/null_deref_scope-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149152-v3.0.0/src/os_cmd_local_flow-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149154-v3.0.0/src/os_cmd_loop-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149156-v1.0.0/src/os_cmd_scope_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149158-v1.0.0/src/resource_injection_@alias_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149160-v2.0.0/src/resource_injection_basic-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149162-v2.0.0/src/resource_injection_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149164-v2.0.0/src/resource_injection_scope-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149166-v1.0.0/src/stack_overflow_array_length_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149168-v2.0.0/src/stack_overflow_index_alias-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149170-v2.0.0/src/stack_overflow_loop-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149174-v1.0.0/src/xss_@alias_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149176-v2.0.0/src/cgic.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149176-v2.0.0/src/xss_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149178-v2.0.0/src/cgic.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149178-v2.0.0/src/xss_scope-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149180-v2.0.0/src/memory_leak_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149182-v1.0.0/src/memory_leak_loop_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149184-v1.0.0/src/unintentional_pointer_scaling_data_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149186-v2.0.0/src/unchecked_error_condition-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149188-v2.0.0/src/sql_injection_loop-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149190-v2.0.0/src/memory_leak_basic-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149192-v1.0.0/src/UninitializedVariable_pointer-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149194-v1.0.0/src/StackOverflow-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149196-v1.0.0/src/Improper_null_term_BufferAddressType_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149198-v1.0.0/src/Uninitialized_variable-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149200-v1.0.0/src/lock_resource_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149202-v1.0.0/src/HeapOverFlow_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149204-v1.0.0/src/use_after_free_container_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149208-v1.0.0/src/UninitializedVariable_DataType_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149210-v1.0.0/src/NullPointerDereference-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149216-v2.0.0/src/cgic.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149216-v2.0.0/src/xss_loop-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149218-v1.0.0/src/double_free-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149220-v1.0.0/src/useafterfree-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149222-v1.0.0/src/use_after_free_scope_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149224-v1.0.0/src/use_after_free_container-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149226-v1.0.0/src/use_after_free_@buffer-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149230-v3.0.0/src/double_free-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149232-v1.0.0/src/race_basic_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149234-v2.0.0/src/race_stat_fctptr-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149238-v1.0.0/src/Format_string_problem-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149238-v2.0.0/src/Format_string_problem-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149240-v2.0.0/src/use_after_free_@buffer-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149240-v3.0.0/src/use_after_free_@buffer-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149242-v3.0.0/src/os_cmd_injection_basic-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149242-v4.0.0/src/os_cmd_injection_basic-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149244-v1.0.0/src/null_deref_local_flow_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149244-v3.0.0/src/null_deref_local_flow-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149246-v1.0.0/src/null_deref_goodc.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149246-v4.0.0/src/null_deref-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149248-v1.0.0/src/use_after_free_@alias_good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/secure/149248-v3.0.0/src/use_after_free_@alias-good.c": {
+    "label": 0,
+    "suite": "secure"
+  },
+  "data/pilot/vulnerable/149045-v3.0.0/src/fmt-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149047-v3.0.0/src/fmt-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149049-v1.0.0/src/mem-bad2.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149051-v2.0.0/src/race-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149053-v2.0.0/src/tain-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149055-v2.0.0/src/ahdec1-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149057-v2.0.0/src/ahgets1-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149059-v1.0.0/src/ahscpy1-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149061-v1.0.0/src/fmt3-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149063-v1.0.0/src/fmt5-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149065-v2.0.0/src/gets1-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149067-v2.0.0/src/gets2-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149069-v2.0.0/src/into2-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149071-v1.0.0/src/mem1-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149073-v1.0.0/src/mem2-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149075-v1.0.0/src/mem3-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149077-v2.0.0/src/scpy2-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149079-v2.0.0/src/scpy7-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149081-v2.0.0/src/scpy8-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149083-v2.0.0/src/scpy9-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149085-v1.0.0/src/heapinspection.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149087-v1.0.0/src/stack_overflow.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149089-v2.0.0/src/uninitialized_variable-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149091-v3.0.0/src/Unintentional_pointer_scaling-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149093-v1.0.0/src/xss_basic_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149095-v1.0.0/src/sql_select_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149097-v1.0.0/src/sql_array_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149099-v2.0.0/src/sql_scope-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149101-v2.0.0/src/race_basic-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149103-v1.0.0/src/race_fctptr_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149105-v1.0.0/src/Use_of_hard-coded_password.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149107-v2.0.0/src/dble_free_local_flow-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149109-v2.0.0/src/dble_free_loop-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149111-v1.0.0/src/fmt_string_local_container.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149113-v1.0.0/src/fmt_string_local_control_flow.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149115-v1.0.0/src/hardcoded_pass_buffer.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149117-v2.0.0/src/hardcoded_pass_container-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149119-v1.0.0/src/hardcoded_pass_local_flow.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149121-v1.0.0/src/hardcoded_pass_loop.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149123-v1.0.0/src/heap_overflow_array.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149125-v5.0.0/src/heap_overflow_cplx-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149127-v1.0.0/src/improper_null_term_basic.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149129-v2.0.0/src/improper_null_term_basic_@alias-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149131-v1.0.0/src/improper_null_term_basic_container.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149133-v1.0.0/src/improper_null_term_basic_taint.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149135-v2.0.0/src/leftover_debug-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149137-v1.0.0/src/misused_string_fct.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149139-v1.0.0/src/misused_string_fct_@alias.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149141-v2.0.0/src/misused_string_fct_container-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149143-v2.0.0/src/misused_string_fct_scope-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149145-v2.0.0/src/misused_string_fct_taint-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149151-v1.0.0/src/os_cmd_local_flow.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149153-v1.0.0/src/os_cmd_loop.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149155-v2.0.0/src/os_cmd_scope-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149157-v2.0.0/src/resource_injection_@alias-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149159-v1.0.0/src/resource_injection_basic.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149161-v2.0.0/src/resource_injection_container-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149163-v2.0.0/src/resource_injection_scope-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149165-v2.0.0/src/stack_overflow_array_length-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149167-v1.0.0/src/stack_overflow_index_alias.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149169-v1.0.0/src/stack_overflow_loop.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149173-v2.0.0/src/cgic.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149173-v2.0.0/src/xss_@alias-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149175-v1.0.0/src/xss_container_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149177-v1.0.0/src/xss_scope_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149179-v1.0.0/src/memory_leak_container-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149181-v1.0.0/src/memory_leak_loop-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149183-v1.0.0/src/unintentional_pointer_scaling_data-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149185-v1.0.0/src/unchecked_error_condiftion.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149187-v1.0.0/src/sql_injection_loop-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149189-v1.0.0/src/memory_leak_basic-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149191-v1.0.0/src/UninitializedVariable_pointer.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149193-v1.0.0/src/StackOverflow_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149195-v2.0.0/src/Improper_null_term_BufferAddressType-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149197-v1.0.0/src/Uninitialized_variable.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149199-v3.0.0/src/lock_resource-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149201-v1.0.0/src/Heap_overflow.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149203-v1.0.0/src/UseAfterFree_container-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149207-v1.0.0/src/UninitializedVariable_DataType-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149209-v1.0.0/src/test.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149215-v2.0.0/src/cgic.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149215-v2.0.0/src/xss_loop-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149217-v3.0.0/src/double_free-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149219-v1.0.0/src/useafterfree_014.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149221-v1.0.0/src/use_after_free_scope.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149223-v3.0.0/src/use_after_free_container-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149225-v3.0.0/src/use_after_free_@buffer-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149229-v1.0.0/src/double_free-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149231-v1.0.0/src/race_basic_bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149233-v2.0.0/src/race_stat_fctptr-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149237-v1.0.0/src/Format_string_problem.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149237-v2.0.0/src/Format_string_problem-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149239-v1.0.0/src/use_after_free_@buffer.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149239-v2.0.0/src/use_after_free_@buffer-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149241-v1.0.0/src/Command_injection.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149241-v2.0.0/src/os_cmd_injection_basic-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149243-v2.0.0/src/null_deref_local_flow-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149243-v3.0.0/src/null_deref_local_flow-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149245-v1.0.0/src/null_deref-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149247-v1.0.0/src/use_after_free_@alias.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  },
+  "data/pilot/vulnerable/149247-v2.0.0/src/use_after_free_@alias-bad.c": {
+    "label": 1,
+    "suite": "vulnerable"
+  }
+}

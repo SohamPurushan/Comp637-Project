@@ -1,0 +1,99 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 149225,
+        "version": "3.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2015-03-23",
+        "language": "c",
+        "author": "NIST, Romain Gaucher, Alexander Hoole, Aurelien Delaitre",
+        "description": "The test case shows a use of an allocated memory after being freed.",
+        "state": "bad",
+        "pairs": [
+          "149226-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/use_after_free_@buffer-bad.c"
+          },
+          "length": 975,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "a883866bac0ed8cf68e9a2510e4db70caedeab1cda580a54ee54b6dcc2c3e6b9"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "416",
+              "name": "Use After Free"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-416",
+          "message": {
+            "text": "Use After Free."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/use_after_free_@buffer-bad.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "416",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

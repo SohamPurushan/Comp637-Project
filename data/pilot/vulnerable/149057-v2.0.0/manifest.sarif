@@ -1,0 +1,99 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 149057,
+        "version": "2.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2015-03-23",
+        "language": "c",
+        "author": "Fortify Software, Alexander Hoole, Aurelien Delaitre",
+        "description": "An ad hoc gets without bounds check allows a stack buffer to be overrun.",
+        "state": "bad",
+        "pairs": [
+          "149058-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/ahgets1-bad.c"
+          },
+          "length": 1435,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "c26d8a61cf0567486bd260e0d486cc669e1a446625f6b633bd128d28d1f6020b"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "121",
+              "name": "Stack-based Buffer Overflow"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-121",
+          "message": {
+            "text": "Stack-based Buffer Overflow."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ahgets1-bad.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "121",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

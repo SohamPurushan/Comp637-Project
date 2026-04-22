@@ -1,0 +1,100 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 149114,
+        "version": "2.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2015-03-23",
+        "language": "c",
+        "author": "NIST, Alexander Hoole, Aurelien Delaitre",
+        "description": "This test case avoids a format string vulnerability in a local control flow; here, we use function pointer for control flow.",
+        "state": "good",
+        "pairs": [
+          "149113-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/fmt_string_local_control_flow-good.c"
+          },
+          "length": 1000,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "8d3792f13f6ffe770b5607a4fd01a5f32c325b9160027a402125bc33f3c87713"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "134",
+              "name": "Use of Externally-Controlled Format String"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-134",
+          "message": {
+            "text": "Use of Externally-Controlled Format String."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/fmt_string_local_control_flow-good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "134",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

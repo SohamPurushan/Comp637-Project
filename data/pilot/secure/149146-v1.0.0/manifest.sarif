@@ -1,0 +1,99 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 1874,
+        "version": "1.0.0",
+        "type": "source code",
+        "status": "deprecated",
+        "submissionDate": "2007-03-01",
+        "language": "c",
+        "description": "The test case shows how it is easy to get a buffer overflow if a string function is misused.",
+        "state": "good",
+        "pairs": [
+          "149145-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/misused_string_fct_taint_good.c"
+          },
+          "length": 918,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "a8bf0789e24b7298d636c3e152401e873abc5d21a93443da11c193c153aa3613"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "251",
+              "name": "Often Misused: String Management"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-251",
+          "message": {
+            "text": "Often Misused: String Management."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/misused_string_fct_taint_good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "251",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

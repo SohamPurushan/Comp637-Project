@@ -1,0 +1,96 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 1926,
+        "version": "1.0.0",
+        "type": "source code",
+        "status": "deprecated",
+        "submissionDate": "2007-03-01",
+        "language": "c",
+        "description": "The test case shows a memory leak.",
+        "state": "good"
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/memory_leak_loop_good.c"
+          },
+          "length": 845,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "9b125123ac81649094561fa08b20ab60e63658574e67f8388005608b4166f808"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "401",
+              "name": "Missing Release of Memory after Effective Lifetime"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-401",
+          "message": {
+            "text": "Missing Release of Memory after Effective Lifetime."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/memory_leak_loop_good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "401",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

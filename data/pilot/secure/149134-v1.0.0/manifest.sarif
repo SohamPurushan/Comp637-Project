@@ -1,0 +1,100 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 1858,
+        "version": "1.0.0",
+        "type": "source code",
+        "status": "deprecated",
+        "submissionDate": "2007-03-01",
+        "language": "c",
+        "description": "This test case exposes an improper null termination which occurred when a argv contains tainted data.",
+        "state": "good",
+        "pairs": [
+          "149133-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/improper_null_term_basic_taint_good.c"
+          },
+          "length": 957,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "6aefc67950ea7a80d1de8bc885c12e21356a6015f6957e4ea9ecf1b401928ee7"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "170",
+              "name": "Improper Null Termination"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-170",
+          "message": {
+            "text": "Improper Null Termination."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/improper_null_term_basic_taint_good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 25,
+                  "endLine": 26
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "170",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 2003,
+        "version": "1.0.0",
+        "type": "source code",
+        "status": "deprecated",
+        "submissionDate": "2007-10-05",
+        "language": "c",
+        "description": "Using the value of an unitialized variable is not safe.",
+        "state": "bad"
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/UninitializedVariable_pointer.c"
+          },
+          "length": 796,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "4ecc7d8cf397c510fcb607304a3d100c4b350f697a00654a06b2aa3302bae795"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "457",
+              "name": "Use of Uninitialized Variable"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-457",
+          "message": {
+            "text": "Use of Uninitialized Variable."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/UninitializedVariable_pointer.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "457",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

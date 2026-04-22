@@ -1,0 +1,120 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 149216,
+        "version": "2.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2015-03-23",
+        "language": "c",
+        "author": "NIST, Romain Gaucher, Alexander Hoole, Aurelien Delaitre",
+        "description": "This is a CGI program which take some parameters values then print it. It avoids Cross-Site Scripting in C within a looping complexity.",
+        "state": "good",
+        "pairs": [
+          "149215-v2.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/cgic.c"
+          },
+          "length": 55735,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "f355b5247ed56c5112a025198cb3d5d6ac4a241930ee6075dcbdebb1193b7fb0"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/include/cgic.h"
+          },
+          "length": 7403,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "f9912ad8f2c290aa5929de47a79631194be9fa02260b7c2a96699dc84ead6da2"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/xss_loop-good.c"
+          },
+          "length": 1460,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "a9bb3422f642faff42a5c5cf524924494899231b652a0199f0a68d2e27d1ab86"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "80",
+              "name": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-80",
+          "message": {
+            "text": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/xss_loop-good.c",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "80",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 149122,
+        "version": "3.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2015-03-23",
+        "language": "c",
+        "author": "NIST, Romain Gaucher, Alexander Hoole, Aurelien Delaitre",
+        "description": "This test case uses PAM to avoid hard coded password in a for loop structure.",
+        "state": "good",
+        "pairs": [
+          "149121-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/hardcoded_pass_loop-good.c"
+          },
+          "length": 3660,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "9dafb7907ca84e3fffdb8bd8e743d005daadd0711a503319de3bd2a767f82f53"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "259",
+              "name": "Use of Hard-coded Password"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-259",
+          "message": {
+            "text": "Use of Hard-coded Password."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/hardcoded_pass_loop-good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 141
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "259",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

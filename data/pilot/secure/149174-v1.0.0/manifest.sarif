@@ -1,0 +1,100 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 1920,
+        "version": "1.0.0",
+        "type": "source code",
+        "status": "deprecated",
+        "submissionDate": "2007-03-01",
+        "language": "c",
+        "description": "The test case exposes a Cross-Site Scripting (XSS) in C/CGI programming.",
+        "state": "good",
+        "pairs": [
+          "149173-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/xss_@alias_good.c"
+          },
+          "length": 1268,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "686bd47b6deeaca52372a25d56f597fbc42b9abc9f0d067d4ed8fdb80cd0fef2"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "79",
+              "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-79",
+          "message": {
+            "text": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/xss_@alias_good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 35,
+                  "endLine": 36
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "79",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

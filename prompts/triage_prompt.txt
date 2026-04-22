@@ -1,0 +1,32 @@
+You are a security-focused C/C++ code analyst. A static analyzer (Clang Static Analyzer) has flagged the following warning. Your task is to triage it and decide whether the warning is a real vulnerability.
+
+=== WARNING ===
+File       : {file}
+Line       : {line}
+Checker    : {checker}
+Message    : {message}
+
+=== CODE CONTEXT ===
+{code_context}
+
+=== YOUR TASK ===
+Analyze the code and the warning. Think step-by-step about whether the flagged location can actually be reached with a null pointer (or the relevant dangerous state) at runtime.
+
+Respond with a single JSON object and nothing else. Use exactly this schema:
+
+{{
+  "llm_decision": "<likely_true | likely_false | uncertain>",
+  "confidence": <float between 0.0 and 1.0>,
+  "predicted_bug_type": "<CWE identifier, e.g. CWE-476>",
+  "reasoning": "<one to three sentences explaining your decision>",
+  "relevant_variables": ["<variable names that carry the dangerous state>"],
+  "branch_conditions": ["<conditions that must hold for the bug to trigger, e.g. 'p == NULL'>"],
+  "suspicious_locations": ["<file:line entries of other locations involved in the flow>"]
+}}
+
+Rules:
+- "likely_true"  → you believe the warning corresponds to a real, reachable bug.
+- "likely_false" → you believe the code is safe and the warning is a false positive.
+- "uncertain"    → you cannot determine without deeper analysis (pass to symbolic execution).
+- Do NOT include any text outside the JSON object.
+- If a list field has no relevant entries, use an empty array [].

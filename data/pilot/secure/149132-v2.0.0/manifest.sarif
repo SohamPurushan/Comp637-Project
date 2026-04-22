@@ -1,0 +1,100 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "id": 149132,
+        "version": "2.0.0",
+        "type": "source code",
+        "status": "candidate",
+        "submissionDate": "2015-03-23",
+        "language": "c",
+        "author": "NIST, Alexander Hoole, Aurelien Delaitre",
+        "description": "The test case avoids an improper null termination in a string which is in a structure.",
+        "state": "good",
+        "pairs": [
+          "149131-v1.0.0"
+        ]
+      },
+      "tool": {
+        "driver": {
+          "name": "SARD - SAMATE",
+          "fullName": "Software Assurance Reference Dataset Project",
+          "informationUri": "https://samate.nist.gov/SARD/",
+          "version": "5.0.0",
+          "organization": "NIST",
+          "supportedTaxonomies": [
+            {
+              "name": "CWE",
+              "index": 0
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/improper_null_term_basic_container-good.c"
+          },
+          "length": 1080,
+          "sourceLanguage": "c",
+          "hashes": {
+            "sha-256": "5f517cda64e2019ea398dc020fe834143739988cbbbc9db1108a9b5e014237b5"
+          }
+        }
+      ],
+      "taxonomies": [
+        {
+          "name": "CWE",
+          "version": "4.6",
+          "informationUri": "https://cwe.mitre.org/data/published/cwe_v4.6.pdf",
+          "downloadUri": "https://cwe.mitre.org/data/xml/cwec_v4.6.xml.zip",
+          "organization": "MITRE",
+          "shortDescription": {
+            "text": "The MITRE Common Weakness Enumeration"
+          },
+          "isComprehensive": false,
+          "taxa": [
+            {
+              "id": "170",
+              "name": "Improper Null Termination"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "CWE-170",
+          "message": {
+            "text": "Improper Null Termination."
+          },
+          "kind": "pass",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/improper_null_term_basic_container-good.c",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "taxa": [
+            {
+              "toolComponent": {
+                "name": "CWE",
+                "index": 0
+              },
+              "id": "170",
+              "index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
