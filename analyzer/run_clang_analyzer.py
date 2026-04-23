@@ -20,15 +20,13 @@ import argparse
 import hashlib
 import json
 import plistlib
+import re
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -41,46 +39,87 @@ from config import (
     TARGET_BUG_CLASS,
 )
 
-# Clang checkers most relevant to CWE-476 null pointer dereference
 ENABLED_CHECKERS = [
     "core.NullDereference",
     "core.NonNullParamChecker",
-    "alpha.core.NullDereference",
 ]
 
-# How many source lines to include as context either side of the warning
 CONTEXT_LINES = 5
 
+# Very lightweight filename filter for the pilot set.
+# This helps avoid analyzing unrelated bug families like use-after-free
+# when the whole project is scoped to CWE-476.
+NULL_FILE_HINTS = (
+    "null",
+    "nullptr",
+    "nullpointer",
+    "null_pointer",
+    "null-deref",
+    "null_deref",
+)
 
-# ---------------------------------------------------------------------------
-# Warning ID generation
-# ---------------------------------------------------------------------------
+
 def make_warning_id(file: str, line: int, checker: str, idx: int) -> str:
     raw = f"{file}:{line}:{checker}:{idx}"
     return "W" + hashlib.sha1(raw.encode()).hexdigest()[:7].upper()
 
 
-# ---------------------------------------------------------------------------
-# Code context extraction
-# ---------------------------------------------------------------------------
 def extract_context(source_file: Path, line: int, n: int = CONTEXT_LINES) -> List[str]:
     try:
         lines = source_file.read_text(errors="replace").splitlines()
     except Exception:
         return []
+
     start = max(0, line - 1 - n)
     end = min(len(lines), line - 1 + n + 1)
-    return [f"{start + i + 1:4d}  {lines[start + i]}" for i in range(end - start)]
+    return [f"{start + i + 1:4d} {lines[start + i]}" for i in range(end - start)]
 
 
-# ---------------------------------------------------------------------------
-# Invoke clang --analyze on a single file and return parsed plist data
-# ---------------------------------------------------------------------------
-def analyze_file(c_file: Path, plist_dir: Path) -> Optional[dict]:
+def parse_text_diagnostics(stderr_text: str, c_file: Path, counter_start: int) -> List[Dict[str, Any]]:
+    """
+    Fallback parser for clang text diagnostics, e.g.
+    /path/file.c:12:8: warning: Dereference of null pointer [core.NullDereference]
+    """
+    records: List[Dict[str, Any]] = []
+    pattern = re.compile(
+        r"^(.*?):(\d+):(\d+):\s+warning:\s+(.*?)\s+\[(.*?)\]\s*$",
+        re.MULTILINE,
+    )
+
+    idx = counter_start
+    for match in pattern.finditer(stderr_text):
+        file_str, line_s, col_s, message, checker = match.groups()
+
+        # Keep only the actual Clang Static Analyzer null-deref checkers
+        if checker not in ENABLED_CHECKERS:
+            continue
+
+        file_path = Path(file_str)
+        line = int(line_s)
+        col = int(col_s)
+
+        idx += 1
+        records.append(
+            {
+                "warning_id": make_warning_id(file_str, line, checker, idx),
+                "file": str(file_path.relative_to(PROJECT_ROOT))
+                if file_path.is_absolute() and file_path.is_relative_to(PROJECT_ROOT)
+                else file_str,
+                "line": line,
+                "column": col,
+                "message": message,
+                "checker": checker,
+                "category": "",
+                "code_context": extract_context(file_path, line),
+            }
+        )
+
+    return records
+
+
+def analyze_file(c_file: Path, plist_dir: Path) -> Tuple[Optional[dict], str, str, int]:
     plist_out = plist_dir / (c_file.stem + ".plist")
 
-    # Build command
-    # -Xclang -analyzer-checker=... enables specific checkers
     checker_args: List[str] = []
     for checker in ENABLED_CHECKERS:
         checker_args += ["-Xclang", f"-analyzer-checker={checker}"]
@@ -88,29 +127,28 @@ def analyze_file(c_file: Path, plist_dir: Path) -> Optional[dict]:
     cmd = [
         CLANG_BIN,
         "--analyze",
+        "-x", "c",
+        "-std=c11",
+        "-Wno-everything",
         "-Xclang", "-analyzer-output=plist",
         "-o", str(plist_out),
         *checker_args,
-        "-Xclang", "-analyzer-config",
-        "-Xclang", "aggressive-binary-operation-simplification=true",
         str(c_file),
     ]
 
     result = subprocess.run(cmd, capture_output=True, text=True)
 
-    if not plist_out.exists():
-        return None
+    plist_data = None
+    if plist_out.exists():
+        try:
+            with open(plist_out, "rb") as fh:
+                plist_data = plistlib.load(fh)
+        except Exception:
+            plist_data = None
 
-    try:
-        with open(plist_out, "rb") as fh:
-            return plistlib.load(fh)
-    except Exception:
-        return None
+    return plist_data, result.stdout, result.stderr, result.returncode
 
 
-# ---------------------------------------------------------------------------
-# Parse plist → list of warning dicts
-# ---------------------------------------------------------------------------
 def plist_to_warnings(
     plist_data: dict,
     source_root: Path,
@@ -120,7 +158,7 @@ def plist_to_warnings(
     files = plist_data.get("files", [])
     diagnostics = plist_data.get("diagnostics", [])
 
-    for idx, diag in enumerate(diagnostics, start=counter_start):
+    for idx, diag in enumerate(diagnostics, start=counter_start + 1):
         location = diag.get("location", {})
         file_idx = location.get("file", 0)
         line = location.get("line", 0)
@@ -133,51 +171,83 @@ def plist_to_warnings(
         message = diag.get("description", "")
         category = diag.get("category", "")
 
-        wid = make_warning_id(file_str, line, checker, idx)
-        context = extract_context(file_path, line)
-
         records.append(
             {
-                "warning_id": wid,
+                "warning_id": make_warning_id(file_str, line, checker, idx),
                 "file": str(file_path.relative_to(source_root))
-                if file_path.is_relative_to(source_root)
+                if file_path.is_absolute() and file_path.is_relative_to(source_root)
                 else file_str,
                 "line": line,
                 "column": col,
                 "message": message,
                 "checker": checker,
                 "category": category,
-                "code_context": context,
+                "code_context": extract_context(file_path, line),
             }
         )
+
     return records
 
 
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-def run_on_directory(source_dir: Path) -> List[Dict[str, Any]]:
+def choose_files(source_dir: Path, dataset_name: str) -> List[Path]:
     c_files = sorted(source_dir.rglob("*.c"))
+
+    if dataset_name == "pilot":
+        filtered = [
+            f for f in c_files
+            if any(hint in f.name.lower() for hint in NULL_FILE_HINTS)
+        ]
+        if filtered:
+            return filtered
+
+    return c_files
+
+
+def run_on_directory(source_dir: Path, dataset_name: str) -> List[Dict[str, Any]]:
+    c_files = choose_files(source_dir, dataset_name)
     if not c_files:
-        print(f"  No .c files found in {source_dir}")
+        print(f"No .c files found in {source_dir}")
         return []
 
-    print(f"  Found {len(c_files)} C files in {source_dir}")
+    print(f"Found {len(c_files)} C files in {source_dir}")
+
     all_warnings: List[Dict[str, Any]] = []
+    failures: List[Dict[str, Any]] = []
     counter = 0
 
     with tempfile.TemporaryDirectory() as tmp:
         plist_dir = Path(tmp)
-        for i, c_file in enumerate(c_files, 1):
-            print(f"  [{i}/{len(c_files)}] {c_file.name}", end="\r", flush=True)
-            plist_data = analyze_file(c_file, plist_dir)
-            if plist_data is None:
-                continue
-            records = plist_to_warnings(plist_data, PROJECT_ROOT, counter)
-            counter += len(records)
-            all_warnings.extend(records)
 
-    print()  # newline after \r progress
+        for i, c_file in enumerate(c_files, 1):
+            print(f"[{i}/{len(c_files)}] {c_file.name}", end="\r", flush=True)
+
+            plist_data, stdout_text, stderr_text, returncode = analyze_file(c_file, plist_dir)
+
+            file_records: List[Dict[str, Any]] = []
+            if plist_data is not None:
+                file_records = plist_to_warnings(plist_data, PROJECT_ROOT, counter)
+
+            if not file_records and stderr_text:
+                file_records = parse_text_diagnostics(stderr_text, c_file, counter)
+
+            if file_records:
+                counter += len(file_records)
+                all_warnings.extend(file_records)
+            elif returncode != 0:
+                failures.append(
+                    {
+                        "file": str(c_file),
+                        "returncode": returncode,
+                        "stderr": stderr_text[:1000],
+                    }
+                )
+
+    print()
+
+    debug_path = RESULTS_DIR / "clang_failures.json"
+    debug_path.write_text(json.dumps(failures, indent=2))
+    print(f"Wrote {len(failures)} analyzer failure record(s) → {debug_path}")
+
     return all_warnings
 
 
@@ -187,7 +257,7 @@ def main() -> None:
         "--dataset",
         choices=["pilot", "juliet"],
         default="pilot",
-        help="Which dataset to analyze (default: pilot)",
+        help="Which dataset to analyze",
     )
     parser.add_argument(
         "--out",
@@ -201,7 +271,7 @@ def main() -> None:
 
     if not source_dir.exists():
         print(f"ERROR: Source directory not found: {source_dir}")
-        print("Run  python dataset/prepare_pilot.py  or  python dataset/prepare_juliet.py  first.")
+        print("Run python3 dataset/prepare_pilot.py or python3 dataset/prepare_juliet.py first.")
         sys.exit(1)
 
     print(f"=== Clang Static Analyzer ({TARGET_BUG_CLASS}) ===")
@@ -209,9 +279,8 @@ def main() -> None:
     print(f"  Source  : {source_dir}")
     print(f"  Output  : {args.out}\n")
 
-    warnings = run_on_directory(source_dir)
+    warnings = run_on_directory(source_dir, args.dataset)
 
-    # Deduplicate by (file, line, checker)
     seen = set()
     unique: List[Dict[str, Any]] = []
     for w in warnings:

@@ -1,13 +1,53 @@
 [
   {
-    "warning_id": "warn_e8955743b68f",
+    "warning_id": "W9552F0E",
     "status": "timeout",
-    "details": "/users/liuhenry/documents/comp 637/project/project final/comp637-project/scripts/klee-docker.sh: line 10: docker: command not found",
-    "target_file": "symexec/harnesses/example_null_03_klee.c",
+    "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/w9552f0e/example_null_03.bc failed: no such file or directory",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
     "target_line": 5,
     "expected_bug_type": "CWE-476",
     "focus_variables": [
       "p"
+    ],
+    "focus_conditions": [
+      "p == NULL"
+    ]
+  },
+  {
+    "warning_id": "W117A02E",
+    "status": "timeout",
+    "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/w117a02e/null_deref_@alias-bad.bc failed: no such file or directory",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
+    "target_line": 19,
+    "expected_bug_type": "CWE-476",
+    "focus_variables": [
+      "tab"
+    ],
+    "focus_conditions": []
+  },
+  {
+    "warning_id": "WB7BFCA1",
+    "status": "timeout",
+    "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/wb7bfca1/null_deref_scope.bc failed: no such file or directory",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
+    "target_line": 17,
+    "expected_bug_type": "CWE-476",
+    "focus_variables": [
+      "b"
+    ],
+    "focus_conditions": [
+      "b == NULL"
+    ]
+  },
+  {
+    "warning_id": "WBFACD8B",
+    "status": "timeout",
+    "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/wbfacd8b/null_deref-bad.bc failed: no such file or directory",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
+    "target_line": 23,
+    "expected_bug_type": "CWE-476",
+    "focus_variables": [
+      "ptr"
     ],
     "focus_conditions": []
   }

@@ -5,11 +5,8 @@ Pydantic/dataclass schemas for the pipeline data structures.
 from dataclasses import dataclass, field
 from typing import List, Optional
 
-
 @dataclass
 class WarningRecord:
-    """A warning emitted by Clang Static Analyzer."""
-
     warning_id: str
     file: str
     line: int
@@ -17,6 +14,7 @@ class WarningRecord:
     message: str
     checker: str
     category: str
+    code_context: List[str] = field(default_factory=list)
 
     def model_dump(self) -> dict:
         return {
@@ -27,20 +25,19 @@ class WarningRecord:
             "message": self.message,
             "checker": self.checker,
             "category": self.category,
+            "code_context": self.code_context,
         }
-
 
 @dataclass
 class LLMTriageRecord:
-    """Result of LLM triage on a static-analysis warning."""
-
     warning_id: str
-    llm_decision: str  # "likely_true", "likely_false", "uncertain"
+    llm_decision: str
     confidence: float
-    predicted_bug_type: Optional[str] = None
-    reasoning: Optional[str] = None
+    predicted_bug_type: str
+    reasoning: str
     relevant_variables: List[str] = field(default_factory=list)
     branch_conditions: List[str] = field(default_factory=list)
+    suspicious_locations: List[str] = field(default_factory=list)
 
     def model_dump(self) -> dict:
         return {
@@ -51,8 +48,8 @@ class LLMTriageRecord:
             "reasoning": self.reasoning,
             "relevant_variables": self.relevant_variables,
             "branch_conditions": self.branch_conditions,
+            "suspicious_locations": self.suspicious_locations,
         }
-
 
 @dataclass
 class SymExecTask:

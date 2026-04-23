@@ -1,0 +1,7 @@
+[
+  {
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/secure/149246-v1.0.0/src/null_deref_goodc.c",
+    "returncode": 1,
+    "stderr": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/secure/149246-v1.0.0/src/null_deref_goodc.c:15:22: error: use of undeclared identifier 'NULL'\n   15 |         char *ptr = (char *)NULL;\n      |                             ^\n1 error generated.\n"
+  }
+]

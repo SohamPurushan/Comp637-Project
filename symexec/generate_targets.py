@@ -15,7 +15,6 @@ common cases in the SARD / Juliet CWE-476 benchmarks cleanly.
 Usage:
     python symexec/generate_targets.py
 """
-
 import json
 import re
 import sys
@@ -61,7 +60,7 @@ def infer_kind(c_type: str) -> Optional[str]:
 #   group 3 → parameter list (raw)
 _FUNC_DEF_RE = re.compile(
     r"^([\w\s\*]+?)\s+"          # return type (greedy, with optional *)
-    r"(\w+)\s*"                   # function name
+    r"(\w+)\s*"                  # function name
     r"\(([^)]*)\)\s*\{?\s*$",    # parameter list
     re.MULTILINE,
 )
@@ -98,7 +97,7 @@ def find_enclosing_function(source_path: Path, warning_line: int):
     # Scan backwards from warning_line to find a function signature
     # We look at up to 60 lines above for the opening.
     search_start = max(0, warning_line - 60)
-    chunk = lines[search_start : warning_line]
+    chunk = lines[search_start:warning_line]
     chunk_text = "\n".join(chunk)
 
     best = None
@@ -130,6 +129,11 @@ def main() -> None:
         print("Run  python llm_triage/triage.py  first.")
         sys.exit(1)
 
+    if not DEFAULT_ANALYZER_OUTPUT.exists():
+        print(f"ERROR: Analyzer output not found: {DEFAULT_ANALYZER_OUTPUT}")
+        print("Run  python analyzer/run_clang_analyzer.py  first.")
+        sys.exit(1)
+
     triage: List[Dict[str, Any]] = json.loads(DEFAULT_TRIAGE_OUTPUT.read_text())
     warnings_raw: List[Dict[str, Any]] = json.loads(DEFAULT_ANALYZER_OUTPUT.read_text())
     warning_map = {w["warning_id"]: w for w in warnings_raw}
@@ -144,10 +148,19 @@ def main() -> None:
         wid = t["warning_id"]
         w = warning_map.get(wid)
         if w is None:
+            skipped += 1
             continue
 
-        source_path = PROJECT_ROOT / w["file"]
-        if not source_path.exists():
+        raw_path = Path(w["file"])
+
+        candidate_paths = [
+            PROJECT_ROOT / raw_path,
+            PROJECT_ROOT / "data" / "pilot" / raw_path.name,
+            PROJECT_ROOT / "data" / "juliet" / raw_path.name,
+        ]
+
+        source_path = next((p for p in candidate_paths if p.exists()), None)
+        if source_path is None:
             skipped += 1
             continue
 
@@ -163,7 +176,9 @@ def main() -> None:
         targets.append(
             {
                 "warning_id": wid,
-                "source_file": str(source_path.relative_to(PROJECT_ROOT)),
+                "source_file": str(source_path),
+                "target_file": str(source_path),
+                "target_line": w["line"],
                 "function_name": func_name,
                 "return_type": ret_type,
                 "arguments": params,

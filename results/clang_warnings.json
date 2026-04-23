@@ -1,11 +1,150 @@
 [
   {
-    "warning_id": "warn_e8955743b68f",
-    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
+    "warning_id": "W9552F0E",
+    "file": "data/pilot/example_null_03.c",
     "line": 5,
     "column": 12,
     "message": "Dereference of null pointer (loaded from variable 'p')",
     "checker": "core.NullDereference",
-    "category": "core"
+    "category": "Logic error",
+    "code_context": [
+      "   1 #include <stdio.h>",
+      "   2 ",
+      "   3 int main() {",
+      "   4     int *p = NULL;",
+      "   5     return *p;",
+      "   6 }"
+    ]
+  },
+  {
+    "warning_id": "WFCE1733",
+    "file": "data/pilot/secure/149244-v1.0.0/src/null_deref_local_flow_good.c",
+    "line": 22,
+    "column": 8,
+    "message": "Dereference of null pointer (loaded from variable 'p')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  17 {",
+      "  18 \tint  k=0;",
+      "  19 \tint *p=(int *)NULL;",
+      "  20 \tswitch(k) {",
+      "  21 \t\tcase 0:",
+      "  22 \t\t\tif (*p)",
+      "  23 \t\t\t\tk = *p;",
+      "  24 \t\tdefault:",
+      "  25 \t\t\tbreak;",
+      "  26 \t}",
+      "  27 \treturn 0;"
+    ]
+  },
+  {
+    "warning_id": "WE8B2F69",
+    "file": "data/pilot/secure/149244-v1.0.0/src/null_deref_local_flow_good.c",
+    "line": 23,
+    "column": 5,
+    "message": "Value stored to 'k' is never read",
+    "checker": "deadcode.DeadStores",
+    "category": "Unused code",
+    "code_context": [
+      "  18 \tint  k=0;",
+      "  19 \tint *p=(int *)NULL;",
+      "  20 \tswitch(k) {",
+      "  21 \t\tcase 0:",
+      "  22 \t\t\tif (*p)",
+      "  23 \t\t\t\tk = *p;",
+      "  24 \t\tdefault:",
+      "  25 \t\t\tbreak;",
+      "  26 \t}",
+      "  27 \treturn 0;",
+      "  28 }"
+    ]
+  },
+  {
+    "warning_id": "W117A02E",
+    "file": "data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
+    "line": 19,
+    "column": 12,
+    "message": "Dereference of null pointer",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  14 #include <stdio.h>",
+      "  15 ",
+      "  16 int main(int argc, char *argv[])",
+      "  17 {",
+      "  18 \tchar *tab[1] = {NULL};",
+      "  19 \tchar  c = *(tab[0]);\t\t\t\t\t\t\t\t/* FLAW */",
+      "  20 \tprintf(\"c = %c\\n\", c);",
+      "  21 \treturn 0;",
+      "  22 }",
+      "  23 "
+    ]
+  },
+  {
+    "warning_id": "WB7BFCA1",
+    "file": "data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
+    "line": 17,
+    "column": 13,
+    "message": "Dereference of null pointer (loaded from variable 'b')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  12 ",
+      "  13 #include <stdlib.h>",
+      "  14 ",
+      "  15 ",
+      "  16 int execute(double *b) {",
+      "  17 \tdouble k = *b;",
+      "  18 \treturn (int)k;",
+      "  19 }",
+      "  20 ",
+      "  21 ",
+      "  22 int main(int argc, char *argv[])"
+    ]
+  },
+  {
+    "warning_id": "W8780E0B",
+    "file": "data/pilot/vulnerable/149243-v3.0.0/src/null_deref_local_flow-bad.c",
+    "line": 23,
+    "column": 8,
+    "message": "Dereference of null pointer (loaded from variable 'p')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  18 \tchar k = 0;",
+      "  19 \tchar *p = (char *)NULL;",
+      "  20 ",
+      "  21 \tswitch(k) {",
+      "  22 \t\tcase 0:",
+      "  23 \t\t\tk = *p;\t\t\t\t\t\t\t\t/* FLAW */",
+      "  24 \t\tdefault:",
+      "  25 \t\t\tbreak;",
+      "  26 \t}",
+      "  27 ",
+      "  28 \tprintf(\"%c\\n\", k);"
+    ]
+  },
+  {
+    "warning_id": "WBFACD8B",
+    "file": "data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
+    "line": 23,
+    "column": 6,
+    "message": "Dereference of null pointer (loaded from variable 'ptr')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  18 \tchar *ptr = NULL;",
+      "  19 \tchar  c = '\\0';",
+      "  20 \t",
+      "  21 \t// whatever",
+      "  22 \t",
+      "  23 \tc = *ptr;\t\t\t\t\t\t\t\t\t/* FLAW */",
+      "  24 ",
+      "  25 \tfprintf(stdout, \"c = %c\\n\", c);",
+      "  26 ",
+      "  27 \treturn 0;\t",
+      "  28 }"
+    ]
   }
 ]

@@ -1,13 +1,104 @@
 [
   {
-    "warning_id": "warn_e8955743b68f",
+    "warning_id": "W9552F0E",
     "llm_decision": "likely_true",
-    "confidence": 0.95,
+    "confidence": 0.9,
     "predicted_bug_type": "CWE-476",
-    "reasoning": "The warning indicates a null-pointer dereference and the nearby context does not show a protective guard before the dereference.",
+    "reasoning": "The dereference of the null pointer 'p' on line 5 will definitely lead to a segmentation fault.",
     "relevant_variables": [
       "p"
     ],
-    "branch_conditions": []
+    "branch_conditions": [
+      "p == NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 850.742
+  },
+  {
+    "warning_id": "WFCE1733",
+    "llm_decision": "likely_false",
+    "confidence": 0.9,
+    "predicted_bug_type": "",
+    "reasoning": "The pointer 'p' is explicitly set to NULL on line 19. The if condition on line 22 checks if '*p' is non-zero before dereferencing, which will never be true since 'p' is NULL.",
+    "relevant_variables": [
+      "p"
+    ],
+    "branch_conditions": [
+      "*p != 0"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 928.771
+  },
+  {
+    "warning_id": "WE8B2F69",
+    "llm_decision": "likely_false",
+    "confidence": 0.9,
+    "predicted_bug_type": "",
+    "reasoning": "The variable 'k' is assigned a value from '*p', but this assignment is conditional on 'if (*p)' being true. Since 'p' is initialized to NULL, dereferencing 'p' would lead to a segmentation fault, not allow 'k' to be assigned a value.",
+    "relevant_variables": [
+      "k",
+      "p"
+    ],
+    "branch_conditions": [
+      "*p != 0"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1241.0
+  },
+  {
+    "warning_id": "W117A02E",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The dereference operation on line 19 will definitely lead to a null pointer dereference because tab[0] is explicitly set to NULL.",
+    "relevant_variables": [
+      "tab"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 949.171
+  },
+  {
+    "warning_id": "WB7BFCA1",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The function `execute` dereferences the pointer `b`, which could be null if the caller passes a null pointer.",
+    "relevant_variables": [
+      "b"
+    ],
+    "branch_conditions": [
+      "b == NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 948.723
+  },
+  {
+    "warning_id": "W8780E0B",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The dereference occurs within a switch case where 'k' is 0, which means 'p' will be dereferenced regardless of its initial value.",
+    "relevant_variables": [
+      "p"
+    ],
+    "branch_conditions": [
+      "k == 0"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1018.207
+  },
+  {
+    "warning_id": "WBFACD8B",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The dereference operation on line 23 occurs immediately after setting 'ptr' to NULL, making it highly likely that the dereference will occur.",
+    "relevant_variables": [
+      "ptr"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 946.948
   }
 ]
