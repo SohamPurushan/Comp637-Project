@@ -226,6 +226,7 @@ def run_on_directory(source_dir: Path, dataset_name: str) -> List[Dict[str, Any]
             file_records: List[Dict[str, Any]] = []
             if plist_data is not None:
                 file_records = plist_to_warnings(plist_data, PROJECT_ROOT, counter)
+                file_records = [r for r in file_records if r["checker"] in ENABLED_CHECKERS]
 
             if not file_records and stderr_text:
                 file_records = parse_text_diagnostics(stderr_text, c_file, counter)

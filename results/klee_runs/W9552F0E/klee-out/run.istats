@@ -1,0 +1,32 @@
+version: 1
+creator: klee
+pid: 1
+cmd: /work/example_null_03.bc
+
+
+positions: instr line
+event: Icov : CoveredInstructions
+event: Forks : Forks
+event: Ireal : InstructionRealTimes
+event: Itime : InstructionTimes
+event: I : Instructions
+event: UCdist : MinDistToUncovered
+event: Rtime : ResolveTime
+event: States : States
+event: Iuncov : UncoveredInstructions
+event: Q : Queries
+event: Qiv : QueriesInvalid
+event: Qv : QueriesValid
+event: Qtime : QueryTime
+events: Icov Forks Ireal Itime I UCdist Rtime States Iuncov Q Qiv Qv Qtime 
+ob=assembly.ll
+fl=example_null_03.c
+fn=main
+9 3 1 0 0 0 1 9 0 0 0 0 0 0 0 
+10 3 1 0 0 0 1 8 0 0 0 0 0 0 0 
+11 3 1 0 0 0 1 7 0 0 0 1 0 0 0 
+12 4 1 0 0 0 1 6 0 0 0 0 0 0 0 
+13 4 1 0 0 0 1 4 0 0 0 1 0 0 0 
+14 5 1 0 0 0 1 3 0 0 0 1 0 0 0 
+15 5 1 0 0 0 1 2 0 0 0 1 0 0 0 
+16 5 0 0 0 0 0 1 0 0 1 0 0 0 0 

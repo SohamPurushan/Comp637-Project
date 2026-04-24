@@ -39,29 +39,7 @@
     ]
   },
   {
-    "warning_id": "WE8B2F69",
-    "file": "data/pilot/secure/149244-v1.0.0/src/null_deref_local_flow_good.c",
-    "line": 23,
-    "column": 5,
-    "message": "Value stored to 'k' is never read",
-    "checker": "deadcode.DeadStores",
-    "category": "Unused code",
-    "code_context": [
-      "  18 \tint  k=0;",
-      "  19 \tint *p=(int *)NULL;",
-      "  20 \tswitch(k) {",
-      "  21 \t\tcase 0:",
-      "  22 \t\t\tif (*p)",
-      "  23 \t\t\t\tk = *p;",
-      "  24 \t\tdefault:",
-      "  25 \t\t\tbreak;",
-      "  26 \t}",
-      "  27 \treturn 0;",
-      "  28 }"
-    ]
-  },
-  {
-    "warning_id": "W117A02E",
+    "warning_id": "W3AFD776",
     "file": "data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
     "line": 19,
     "column": 12,
@@ -82,7 +60,7 @@
     ]
   },
   {
-    "warning_id": "WB7BFCA1",
+    "warning_id": "W43E668A",
     "file": "data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
     "line": 17,
     "column": 13,
@@ -104,7 +82,7 @@
     ]
   },
   {
-    "warning_id": "W8780E0B",
+    "warning_id": "W5B3327B",
     "file": "data/pilot/vulnerable/149243-v3.0.0/src/null_deref_local_flow-bad.c",
     "line": 23,
     "column": 8,
@@ -126,7 +104,7 @@
     ]
   },
   {
-    "warning_id": "WBFACD8B",
+    "warning_id": "W3A668C4",
     "file": "data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
     "line": 23,
     "column": 6,

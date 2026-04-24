@@ -1,0 +1,11 @@
+Error: memory error: null page access
+File: null_deref_@alias-bad.c
+Line: 19
+assembly.ll line: 27
+State: 1
+Stack: 
+	#000000027 in main(argc=1, argv=140733615837184) at null_deref_@alias-bad.c:19
+Info: 
+	address: 0
+	next: object at 139483243483136 of size 1
+		MO43[1] allocated at main():  %c = alloca i8, align 1

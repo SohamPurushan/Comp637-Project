@@ -1,0 +1,12 @@
+Error: memory error: null page access
+File: null_deref_scope.c
+Line: 17
+assembly.ll line: 15
+State: 1
+Stack: 
+	#000000015 in execute(b=0) at null_deref_scope.c:17
+	#100000040 in main(argc=1, argv=140733615837184) at null_deref_scope.c:25
+Info: 
+	address: 0
+	next: object at 139489685934080 of size 4
+		MO37[4] allocated at main():  %argc.addr = alloca i32, align 4

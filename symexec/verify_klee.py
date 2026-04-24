@@ -136,46 +136,68 @@ def build_tasks(
 
 
 def compile_to_bc(task: SymExecTask, workdir: Path) -> Path:
-    source_path = Path(task.target_file)
+    source_path = Path(task.target_file).resolve()
     if not source_path.exists():
         raise FileNotFoundError(f"Target file not found: {source_path}")
 
     bc_path = workdir / f"{source_path.stem}.bc"
+
+    source_dir = source_path.parent
+    source_name = source_path.name
+    bc_name = bc_path.name
+
     cmd = [
-        CLANG_BIN,
-        "-I",
-        KLEE_INCLUDE_DIR,
+        "docker", "run", "--rm",
+        "--platform", "linux/amd64",
+        "-v", f"{source_dir}:/src",
+        "-v", f"{workdir.resolve()}:/out",
+        "-w", "/src",
+        "klee/klee:3.1",
+        "clang",
+        "-I", "/home/klee/klee/include",
         "-emit-llvm",
         "-c",
         "-g",
         "-O0",
-        "-Xclang",
-        "-disable-O0-optnone",
-        str(source_path),
-        "-o",
-        str(bc_path),
+        "-Xclang", "-disable-O0-optnone",
+        source_name,
+        "-o", f"/out/{bc_name}",
     ]
+
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         raise RuntimeError(
             f"LLVM bitcode compilation failed for {source_path}\n"
             f"STDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}"
         )
+
+    if not bc_path.exists():
+        raise RuntimeError(f"Bitcode file was not created: {bc_path}")
+
     return bc_path
 
 
 def run_klee_on_bc(bc_path: Path, out_dir: Path) -> subprocess.CompletedProcess:
-    out_dir.mkdir(parents=True, exist_ok=True)
+    task_dir = bc_path.parent.resolve()
+    bc_name = bc_path.name
+
+    # Remove any old KLEE output so KLEE can create a fresh directory
+    if out_dir.exists():
+        import shutil
+        shutil.rmtree(out_dir)
+
     cmd = [
-        KLEE_BIN,
-        "--output-dir",
-        str(out_dir),
-        "--max-time",
-        KLEE_MAX_TIME,
-        str(bc_path),
+        "docker", "run", "--rm",
+        "--platform", "linux/amd64",
+        "-v", f"{task_dir}:/work",
+        "-w", "/work",
+        "klee/klee:3.1",
+        "klee",
+        "--output-dir=/work/klee-out",
+        f"--max-time={KLEE_MAX_TIME}",
+        f"/work/{bc_name}",
     ]
     return subprocess.run(cmd, capture_output=True, text=True)
-
 
 def classify_klee_result(proc: subprocess.CompletedProcess) -> tuple[str, str]:
     combined = "\n".join([proc.stdout.strip(), proc.stderr.strip()]).strip().lower()
@@ -184,7 +206,7 @@ def classify_klee_result(proc: subprocess.CompletedProcess) -> tuple[str, str]:
     if "halt timer invoked" in combined or "timed out" in combined:
         return "timeout", combined
 
-    # Hard infrastructure / execution failures should NOT count as feasible
+    # Infrastructure / execution failures
     if "failed: no such file or directory" in combined:
         return "timeout", combined
     if "unable to load" in combined or "loading file" in combined:
@@ -192,18 +214,18 @@ def classify_klee_result(proc: subprocess.CompletedProcess) -> tuple[str, str]:
     if "docker:" in combined and "not found" in combined:
         return "timeout", combined
 
-    # These are closer to actual bug-triggering conditions
+    # Actual bug-triggering style outcomes
     if "memory error" in combined or "null pointer exception" in combined:
         return "feasible", combined
 
-    # Clean completion without an error path
+    # Clean completion with no reported error path
     if proc.returncode == 0:
         return (
             "infeasible",
             combined if combined else "KLEE completed without reporting an error path.",
         )
 
-    # Everything else is unresolved infrastructure failure
+    # Everything else is unresolved failure
     return (
         "timeout",
         combined if combined else "KLEE failed without a classified result.",
@@ -215,6 +237,8 @@ def verify_task(task: SymExecTask) -> dict:
 
     try:
         bc_path = compile_to_bc(task, task_dir)
+        if not bc_path.exists():
+            raise RuntimeError(f"Bitcode file was not created: {bc_path}")
         proc = run_klee_on_bc(bc_path, task_dir / "klee-out")
         status, details = classify_klee_result(proc)
         return {

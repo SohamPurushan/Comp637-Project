@@ -12,7 +12,7 @@
       "p == NULL"
     ],
     "suspicious_locations": [],
-    "triage_time_s": 850.742
+    "triage_time_s": 983.167
   },
   {
     "warning_id": "WFCE1733",
@@ -27,26 +27,10 @@
       "*p != 0"
     ],
     "suspicious_locations": [],
-    "triage_time_s": 928.771
+    "triage_time_s": 1206.029
   },
   {
-    "warning_id": "WE8B2F69",
-    "llm_decision": "likely_false",
-    "confidence": 0.9,
-    "predicted_bug_type": "",
-    "reasoning": "The variable 'k' is assigned a value from '*p', but this assignment is conditional on 'if (*p)' being true. Since 'p' is initialized to NULL, dereferencing 'p' would lead to a segmentation fault, not allow 'k' to be assigned a value.",
-    "relevant_variables": [
-      "k",
-      "p"
-    ],
-    "branch_conditions": [
-      "*p != 0"
-    ],
-    "suspicious_locations": [],
-    "triage_time_s": 1241.0
-  },
-  {
-    "warning_id": "W117A02E",
+    "warning_id": "W3AFD776",
     "llm_decision": "likely_true",
     "confidence": 0.9,
     "predicted_bug_type": "CWE-476",
@@ -56,10 +40,10 @@
     ],
     "branch_conditions": [],
     "suspicious_locations": [],
-    "triage_time_s": 949.171
+    "triage_time_s": 1008.909
   },
   {
-    "warning_id": "WB7BFCA1",
+    "warning_id": "W43E668A",
     "llm_decision": "likely_true",
     "confidence": 0.9,
     "predicted_bug_type": "CWE-476",
@@ -71,10 +55,10 @@
       "b == NULL"
     ],
     "suspicious_locations": [],
-    "triage_time_s": 948.723
+    "triage_time_s": 986.779
   },
   {
-    "warning_id": "W8780E0B",
+    "warning_id": "W5B3327B",
     "llm_decision": "likely_true",
     "confidence": 0.9,
     "predicted_bug_type": "CWE-476",
@@ -86,10 +70,10 @@
       "k == 0"
     ],
     "suspicious_locations": [],
-    "triage_time_s": 1018.207
+    "triage_time_s": 1077.8
   },
   {
-    "warning_id": "WBFACD8B",
+    "warning_id": "W3A668C4",
     "llm_decision": "likely_true",
     "confidence": 0.9,
     "predicted_bug_type": "CWE-476",
@@ -99,6 +83,6 @@
     ],
     "branch_conditions": [],
     "suspicious_locations": [],
-    "triage_time_s": 946.948
+    "triage_time_s": 1002.843
   }
 ]

@@ -31,12 +31,12 @@
         "p == NULL"
       ],
       "suspicious_locations": [],
-      "triage_time_s": 850.742
+      "triage_time_s": 983.167
     },
     "symexec": {
       "warning_id": "W9552F0E",
-      "status": "timeout",
-      "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/w9552f0e/example_null_03.bc failed: no such file or directory",
+      "status": "feasible",
+      "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: error: example_null_03.c:5: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 7\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
       "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
       "target_line": 5,
       "expected_bug_type": "CWE-476",
@@ -48,8 +48,8 @@
       ]
     },
     "ground_truth": null,
-    "final_decision": "triage_true",
-    "total_pipeline_time_s": 850.742
+    "final_decision": "confirmed_true",
+    "total_pipeline_time_s": 983.167
   },
   {
     "warning_id": "WFCE1733",
@@ -88,62 +88,17 @@
         "*p != 0"
       ],
       "suspicious_locations": [],
-      "triage_time_s": 928.771
+      "triage_time_s": 1206.029
     },
     "symexec": null,
     "ground_truth": 0,
     "final_decision": "triage_false",
-    "total_pipeline_time_s": 928.771
+    "total_pipeline_time_s": 1206.029
   },
   {
-    "warning_id": "WE8B2F69",
+    "warning_id": "W3AFD776",
     "warning": {
-      "warning_id": "WE8B2F69",
-      "file": "data/pilot/secure/149244-v1.0.0/src/null_deref_local_flow_good.c",
-      "line": 23,
-      "column": 5,
-      "message": "Value stored to 'k' is never read",
-      "checker": "deadcode.DeadStores",
-      "category": "Unused code",
-      "code_context": [
-        "  18 \tint  k=0;",
-        "  19 \tint *p=(int *)NULL;",
-        "  20 \tswitch(k) {",
-        "  21 \t\tcase 0:",
-        "  22 \t\t\tif (*p)",
-        "  23 \t\t\t\tk = *p;",
-        "  24 \t\tdefault:",
-        "  25 \t\t\tbreak;",
-        "  26 \t}",
-        "  27 \treturn 0;",
-        "  28 }"
-      ]
-    },
-    "triage": {
-      "warning_id": "WE8B2F69",
-      "llm_decision": "likely_false",
-      "confidence": 0.9,
-      "predicted_bug_type": "",
-      "reasoning": "The variable 'k' is assigned a value from '*p', but this assignment is conditional on 'if (*p)' being true. Since 'p' is initialized to NULL, dereferencing 'p' would lead to a segmentation fault, not allow 'k' to be assigned a value.",
-      "relevant_variables": [
-        "k",
-        "p"
-      ],
-      "branch_conditions": [
-        "*p != 0"
-      ],
-      "suspicious_locations": [],
-      "triage_time_s": 1241.0
-    },
-    "symexec": null,
-    "ground_truth": 0,
-    "final_decision": "triage_false",
-    "total_pipeline_time_s": 1241.0
-  },
-  {
-    "warning_id": "W117A02E",
-    "warning": {
-      "warning_id": "W117A02E",
+      "warning_id": "W3AFD776",
       "file": "data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
       "line": 19,
       "column": 12,
@@ -164,7 +119,7 @@
       ]
     },
     "triage": {
-      "warning_id": "W117A02E",
+      "warning_id": "W3AFD776",
       "llm_decision": "likely_true",
       "confidence": 0.9,
       "predicted_bug_type": "CWE-476",
@@ -174,12 +129,12 @@
       ],
       "branch_conditions": [],
       "suspicious_locations": [],
-      "triage_time_s": 949.171
+      "triage_time_s": 1008.909
     },
     "symexec": {
-      "warning_id": "W117A02E",
-      "status": "timeout",
-      "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/w117a02e/null_deref_@alias-bad.bc failed: no such file or directory",
+      "warning_id": "W3AFD776",
+      "status": "feasible",
+      "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: warning: undefined reference to function: printf\nklee: error: null_deref_@alias-bad.c:19: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 134\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
       "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
       "target_line": 19,
       "expected_bug_type": "CWE-476",
@@ -189,13 +144,13 @@
       "focus_conditions": []
     },
     "ground_truth": 1,
-    "final_decision": "triage_true",
-    "total_pipeline_time_s": 949.171
+    "final_decision": "confirmed_true",
+    "total_pipeline_time_s": 1008.909
   },
   {
-    "warning_id": "WB7BFCA1",
+    "warning_id": "W43E668A",
     "warning": {
-      "warning_id": "WB7BFCA1",
+      "warning_id": "W43E668A",
       "file": "data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
       "line": 17,
       "column": 13,
@@ -217,7 +172,7 @@
       ]
     },
     "triage": {
-      "warning_id": "WB7BFCA1",
+      "warning_id": "W43E668A",
       "llm_decision": "likely_true",
       "confidence": 0.9,
       "predicted_bug_type": "CWE-476",
@@ -229,12 +184,12 @@
         "b == NULL"
       ],
       "suspicious_locations": [],
-      "triage_time_s": 948.723
+      "triage_time_s": 986.779
     },
     "symexec": {
-      "warning_id": "WB7BFCA1",
-      "status": "timeout",
-      "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/wb7bfca1/null_deref_scope.bc failed: no such file or directory",
+      "warning_id": "W43E668A",
+      "status": "feasible",
+      "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: error: null_deref_scope.c:17: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 20\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
       "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
       "target_line": 17,
       "expected_bug_type": "CWE-476",
@@ -246,13 +201,13 @@
       ]
     },
     "ground_truth": 1,
-    "final_decision": "triage_true",
-    "total_pipeline_time_s": 948.723
+    "final_decision": "confirmed_true",
+    "total_pipeline_time_s": 986.779
   },
   {
-    "warning_id": "W8780E0B",
+    "warning_id": "W5B3327B",
     "warning": {
-      "warning_id": "W8780E0B",
+      "warning_id": "W5B3327B",
       "file": "data/pilot/vulnerable/149243-v3.0.0/src/null_deref_local_flow-bad.c",
       "line": 23,
       "column": 8,
@@ -274,7 +229,7 @@
       ]
     },
     "triage": {
-      "warning_id": "W8780E0B",
+      "warning_id": "W5B3327B",
       "llm_decision": "likely_true",
       "confidence": 0.9,
       "predicted_bug_type": "CWE-476",
@@ -286,17 +241,17 @@
         "k == 0"
       ],
       "suspicious_locations": [],
-      "triage_time_s": 1018.207
+      "triage_time_s": 1077.8
     },
     "symexec": null,
     "ground_truth": 1,
     "final_decision": "triage_true",
-    "total_pipeline_time_s": 1018.207
+    "total_pipeline_time_s": 1077.8
   },
   {
-    "warning_id": "WBFACD8B",
+    "warning_id": "W3A668C4",
     "warning": {
-      "warning_id": "WBFACD8B",
+      "warning_id": "W3A668C4",
       "file": "data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
       "line": 23,
       "column": 6,
@@ -318,7 +273,7 @@
       ]
     },
     "triage": {
-      "warning_id": "WBFACD8B",
+      "warning_id": "W3A668C4",
       "llm_decision": "likely_true",
       "confidence": 0.9,
       "predicted_bug_type": "CWE-476",
@@ -328,12 +283,12 @@
       ],
       "branch_conditions": [],
       "suspicious_locations": [],
-      "triage_time_s": 946.948
+      "triage_time_s": 1002.843
     },
     "symexec": {
-      "warning_id": "WBFACD8B",
-      "status": "timeout",
-      "details": "warning: the requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nklee: error: loading file /users/liuhenry/documents/comp 637/project/project final/comp637-project/results/klee_runs/wbfacd8b/null_deref-bad.bc failed: no such file or directory",
+      "warning_id": "W3A668C4",
+      "status": "feasible",
+      "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: warning: undefined reference to function: fprintf\nklee: warning: undefined reference to variable: stdout\nklee: error: null_deref-bad.c:23: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 16\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
       "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
       "target_line": 23,
       "expected_bug_type": "CWE-476",
@@ -343,7 +298,7 @@
       "focus_conditions": []
     },
     "ground_truth": 1,
-    "final_decision": "triage_true",
-    "total_pipeline_time_s": 946.948
+    "final_decision": "confirmed_true",
+    "total_pipeline_time_s": 1002.843
   }
 ]
