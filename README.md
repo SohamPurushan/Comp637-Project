@@ -154,6 +154,17 @@ python evaluation/case_study.py --warning-id W0000
 
 ---
 
+## Experiment artifacts
+
+Additional experiment summaries and worked examples are available in:
+
+- `docs/experiment_results.md` — final comparison table, dataset notes, runtime summary, and limitations
+- `docs/case_study_example_null_03.md` — one full case study showing a warning through analyzer, LLM triage, symbolic execution, and final pipeline decision
+
+These files are intended to preserve the current pilot and Juliet-small-subset experiment results in a GitHub-accessible form without overwriting the main pipeline outputs.
+
+---
+
 ## Target bug class
 
 CWE-476: Null Pointer Dereference (C/C++)

@@ -1,0 +1,552 @@
+[
+  {
+    "warning_id": "W9BC930D",
+    "warning": {
+      "warning_id": "W9BC930D",
+      "file": "data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+      "line": 26,
+      "column": 47,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  21 {",
+        "  22     {",
+        "  23         twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  24         /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  25          * thus causing a NPD */",
+        "  26         if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  27         {",
+        "  28             printLine(\"intOne == 5\");",
+        "  29         }",
+        "  30     }",
+        "  31 }"
+      ]
+    },
+    "triage": {
+      "warning_id": "W9BC930D",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null before accessing its fields. This can lead to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [],
+      "suspicious_locations": [],
+      "triage_time_s": 1019.813
+    },
+    "symexec": {
+      "warning_id": "W9BC930D",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_01.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+      "target_line": 26,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": []
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1019.813
+  },
+  {
+    "warning_id": "WFE9593F",
+    "warning": {
+      "warning_id": "WFE9593F",
+      "file": "data/juliet/104533-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_02.c",
+      "line": 28,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  23     {",
+        "  24         {",
+        "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  27              * thus causing a NPD */",
+        "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  29             {",
+        "  30                 printLine(\"intOne == 5\");",
+        "  31             }",
+        "  32         }",
+        "  33     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "WFE9593F",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code attempts to access the 'intOne' field of a potentially null pointer 'twoIntsStructPointer'. The bitwise AND operator '&' is used instead of the logical AND operator '&&', which means both conditions are always evaluated regardless of the first condition's result. This could lead to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [],
+      "suspicious_locations": [],
+      "triage_time_s": 1289.428
+    },
+    "symexec": {
+      "warning_id": "WFE9593F",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104533-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_02.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_02.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104533-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_02.c",
+      "target_line": 28,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": []
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1289.428
+  },
+  {
+    "warning_id": "W08C93E3",
+    "warning": {
+      "warning_id": "W08C93E3",
+      "file": "data/juliet/104534-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_03.c",
+      "line": 28,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  23     {",
+        "  24         {",
+        "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  27              * thus causing a NPD */",
+        "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  29             {",
+        "  30                 printLine(\"intOne == 5\");",
+        "  31             }",
+        "  32         }",
+        "  33     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "W08C93E3",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null. The bitwise AND operator (`&`) is used instead of the logical AND operator (`&&`), which means both conditions are always evaluated regardless of the first condition being true or false.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [],
+      "suspicious_locations": [],
+      "triage_time_s": 1209.632
+    },
+    "symexec": {
+      "warning_id": "W08C93E3",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104534-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_03.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_03.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104534-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_03.c",
+      "target_line": 28,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": []
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1209.632
+  },
+  {
+    "warning_id": "WA83C2A7",
+    "warning": {
+      "warning_id": "WA83C2A7",
+      "file": "data/juliet/104535-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_04.c",
+      "line": 34,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  29     {",
+        "  30         {",
+        "  31             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  32             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  33              * thus causing a NPD */",
+        "  34             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  35             {",
+        "  36                 printLine(\"intOne == 5\");",
+        "  37             }",
+        "  38         }",
+        "  39     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "WA83C2A7",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [
+        "twoIntsStructPointer == NULL"
+      ],
+      "suspicious_locations": [],
+      "triage_time_s": 1328.022
+    },
+    "symexec": {
+      "warning_id": "WA83C2A7",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104535-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_04.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_04.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104535-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_04.c",
+      "target_line": 34,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": [
+        "twoIntsStructPointer == NULL"
+      ]
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1328.022
+  },
+  {
+    "warning_id": "WA5B2DB8",
+    "warning": {
+      "warning_id": "WA5B2DB8",
+      "file": "data/juliet/104536-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_05.c",
+      "line": 34,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  29     {",
+        "  30         {",
+        "  31             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  32             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  33              * thus causing a NPD */",
+        "  34             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  35             {",
+        "  36                 printLine(\"intOne == 5\");",
+        "  37             }",
+        "  38         }",
+        "  39     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "WA5B2DB8",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [
+        "twoIntsStructPointer != NULL"
+      ],
+      "suspicious_locations": [],
+      "triage_time_s": 1318.323
+    },
+    "symexec": {
+      "warning_id": "WA5B2DB8",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104536-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_05.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_05.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104536-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_05.c",
+      "target_line": 34,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": [
+        "twoIntsStructPointer != NULL"
+      ]
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1318.323
+  },
+  {
+    "warning_id": "W13FBEF7",
+    "warning": {
+      "warning_id": "W13FBEF7",
+      "file": "data/juliet/104537-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_06.c",
+      "line": 33,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  28     {",
+        "  29         {",
+        "  30             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  31             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  32              * thus causing a NPD */",
+        "  33             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  34             {",
+        "  35                 printLine(\"intOne == 5\");",
+        "  36             }",
+        "  37         }",
+        "  38     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "W13FBEF7",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [
+        "twoIntsStructPointer == NULL"
+      ],
+      "suspicious_locations": [],
+      "triage_time_s": 1335.51
+    },
+    "symexec": {
+      "warning_id": "W13FBEF7",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104537-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_06.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_06.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104537-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_06.c",
+      "target_line": 33,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": [
+        "twoIntsStructPointer == NULL"
+      ]
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1335.51
+  },
+  {
+    "warning_id": "W9CC5C9D",
+    "warning": {
+      "warning_id": "W9CC5C9D",
+      "file": "data/juliet/104538-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_07.c",
+      "line": 33,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  28     {",
+        "  29         {",
+        "  30             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  31             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  32              * thus causing a NPD */",
+        "  33             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  34             {",
+        "  35                 printLine(\"intOne == 5\");",
+        "  36             }",
+        "  37         }",
+        "  38     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "W9CC5C9D",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [
+        "twoIntsStructPointer != NULL"
+      ],
+      "suspicious_locations": [],
+      "triage_time_s": 1329.758
+    },
+    "symexec": {
+      "warning_id": "W9CC5C9D",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104538-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_07.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_07.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104538-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_07.c",
+      "target_line": 33,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": [
+        "twoIntsStructPointer != NULL"
+      ]
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1329.758
+  },
+  {
+    "warning_id": "WE408412",
+    "warning": {
+      "warning_id": "WE408412",
+      "file": "data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+      "line": 41,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  36     {",
+        "  37         {",
+        "  38             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  39             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  40              * thus causing a NPD */",
+        "  41             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  42             {",
+        "  43                 printLine(\"intOne == 5\");",
+        "  44             }",
+        "  45         }",
+        "  46     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "WE408412",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [
+        "twoIntsStructPointer != NULL"
+      ],
+      "suspicious_locations": [],
+      "triage_time_s": 1318.754
+    },
+    "symexec": {
+      "warning_id": "WE408412",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_08.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+      "target_line": 41,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": [
+        "twoIntsStructPointer != NULL"
+      ]
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1318.754
+  },
+  {
+    "warning_id": "WE140ADC",
+    "warning": {
+      "warning_id": "WE140ADC",
+      "file": "data/juliet/104540-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_09.c",
+      "line": 28,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  23     {",
+        "  24         {",
+        "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  27              * thus causing a NPD */",
+        "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  29             {",
+        "  30                 printLine(\"intOne == 5\");",
+        "  31             }",
+        "  32         }",
+        "  33     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "WE140ADC",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null. The bitwise AND operator '&' is used instead of the logical AND operator '&&', which means both conditions are always evaluated regardless of the first condition being true or false.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [],
+      "suspicious_locations": [],
+      "triage_time_s": 1187.816
+    },
+    "symexec": {
+      "warning_id": "WE140ADC",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104540-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_09.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_09.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104540-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_09.c",
+      "target_line": 28,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": []
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1187.816
+  },
+  {
+    "warning_id": "W96A6FC4",
+    "warning": {
+      "warning_id": "W96A6FC4",
+      "file": "data/juliet/104541-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_10.c",
+      "line": 28,
+      "column": 51,
+      "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+      "checker": "core.NullDereference",
+      "category": "Logic error",
+      "code_context": [
+        "  23     {",
+        "  24         {",
+        "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+        "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+        "  27              * thus causing a NPD */",
+        "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+        "  29             {",
+        "  30                 printLine(\"intOne == 5\");",
+        "  31             }",
+        "  32         }",
+        "  33     }"
+      ]
+    },
+    "triage": {
+      "warning_id": "W96A6FC4",
+      "llm_decision": "likely_true",
+      "confidence": 0.9,
+      "predicted_bug_type": "CWE-476",
+      "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null. The bitwise AND operator (`&`) is used instead of the logical AND operator (`&&`), which means both conditions are always evaluated regardless of the first condition being true or false.",
+      "relevant_variables": [
+        "twoIntsStructPointer"
+      ],
+      "branch_conditions": [],
+      "suspicious_locations": [],
+      "triage_time_s": 1209.893
+    },
+    "symexec": {
+      "warning_id": "W96A6FC4",
+      "status": "timeout",
+      "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104541-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_10.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_10.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+      "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104541-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_10.c",
+      "target_line": 28,
+      "expected_bug_type": "CWE-476",
+      "focus_variables": [
+        "twoIntsStructPointer"
+      ],
+      "focus_conditions": []
+    },
+    "ground_truth": 1,
+    "final_decision": "triage_true",
+    "total_pipeline_time_s": 1209.893
+  }
+]

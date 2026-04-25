@@ -1,0 +1,142 @@
+[
+  {
+    "warning_id": "W9BC930D",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null before accessing its fields. This can lead to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 1019.813
+  },
+  {
+    "warning_id": "WFE9593F",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code attempts to access the 'intOne' field of a potentially null pointer 'twoIntsStructPointer'. The bitwise AND operator '&' is used instead of the logical AND operator '&&', which means both conditions are always evaluated regardless of the first condition's result. This could lead to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 1289.428
+  },
+  {
+    "warning_id": "W08C93E3",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null. The bitwise AND operator (`&`) is used instead of the logical AND operator (`&&`), which means both conditions are always evaluated regardless of the first condition being true or false.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 1209.632
+  },
+  {
+    "warning_id": "WA83C2A7",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [
+      "twoIntsStructPointer == NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1328.022
+  },
+  {
+    "warning_id": "WA5B2DB8",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [
+      "twoIntsStructPointer != NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1318.323
+  },
+  {
+    "warning_id": "W13FBEF7",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [
+      "twoIntsStructPointer == NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1335.51
+  },
+  {
+    "warning_id": "W9CC5C9D",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [
+      "twoIntsStructPointer != NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1329.758
+  },
+  {
+    "warning_id": "WE408412",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code uses a bitwise AND operator (&) instead of a logical AND operator (&&). This means that even if 'twoIntsStructPointer' is NULL, the condition 'twoIntsStructPointer->intOne == 5' will still be evaluated, leading to a null pointer dereference.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [
+      "twoIntsStructPointer != NULL"
+    ],
+    "suspicious_locations": [],
+    "triage_time_s": 1318.754
+  },
+  {
+    "warning_id": "WE140ADC",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null. The bitwise AND operator '&' is used instead of the logical AND operator '&&', which means both conditions are always evaluated regardless of the first condition being true or false.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 1187.816
+  },
+  {
+    "warning_id": "W96A6FC4",
+    "llm_decision": "likely_true",
+    "confidence": 0.9,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The code dereferences `twoIntsStructPointer` even though it checks if it's not null. The bitwise AND operator (`&`) is used instead of the logical AND operator (`&&`), which means both conditions are always evaluated regardless of the first condition being true or false.",
+    "relevant_variables": [
+      "twoIntsStructPointer"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": [],
+    "triage_time_s": 1209.893
+  }
+]

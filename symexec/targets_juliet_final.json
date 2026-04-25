@@ -1,0 +1,92 @@
+[
+  {
+    "warning_id": "W9BC930D",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+    "target_line": 26,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_01_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "WFE9593F",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104533-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_02.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104533-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_02.c",
+    "target_line": 28,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_02_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "W08C93E3",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104534-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_03.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104534-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_03.c",
+    "target_line": 28,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_03_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "WA83C2A7",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104535-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_04.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104535-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_04.c",
+    "target_line": 34,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_04_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "WA5B2DB8",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104536-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_05.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104536-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_05.c",
+    "target_line": 34,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_05_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "W13FBEF7",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104537-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_06.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104537-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_06.c",
+    "target_line": 33,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_06_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "W9CC5C9D",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104538-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_07.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104538-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_07.c",
+    "target_line": 33,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_07_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "WE408412",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+    "target_line": 41,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_08_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "WE140ADC",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104540-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_09.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104540-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_09.c",
+    "target_line": 28,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_09_bad",
+    "return_type": "void",
+    "arguments": []
+  },
+  {
+    "warning_id": "W96A6FC4",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104541-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_10.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104541-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_10.c",
+    "target_line": 28,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_10_bad",
+    "return_type": "void",
+    "arguments": []
+  }
+]

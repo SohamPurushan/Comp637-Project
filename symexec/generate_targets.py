@@ -94,31 +94,44 @@ def find_enclosing_function(source_path: Path, warning_line: int):
     except Exception:
         return None
 
-    # Scan backwards from warning_line to find a function signature
-    # We look at up to 60 lines above for the opening.
-    search_start = max(0, warning_line - 60)
-    chunk = lines[search_start:warning_line]
-    chunk_text = "\n".join(chunk)
+    # Work with 1-based warning_line, but Python lists are 0-based
+    idx = min(max(warning_line - 1, 0), len(lines) - 1)
 
-    best = None
-    for m in _FUNC_DEF_RE.finditer(chunk_text):
-        best = m  # keep the last (closest to warning line) match
-
-    if best is None:
-        return None
-
-    ret_type = best.group(1).strip()
-    func_name = best.group(2).strip()
-    param_str = best.group(3).strip()
-
-    # Filter out obviously wrong matches (control-flow keywords, etc.)
     bad = {"if", "for", "while", "switch", "return", "else"}
-    if func_name in bad or ret_type.rstrip("* ") in bad:
-        return None
 
-    params = parse_params(param_str)
-    return func_name, ret_type, params
+    # Scan upward line by line, looking for something that looks like
+    # a function definition header. This is more robust than applying
+    # one big regex over a chunk of text.
+    for i in range(idx, max(-1, idx - 80), -1):
+        line = lines[i].strip()
 
+        if not line:
+            continue
+        if line.startswith("#"):
+            continue
+
+        # Match forms like:
+        #   void foo()
+        #   int *foo(int x)
+        # and allow the brace either on the same line or the next line.
+        m = re.match(r"^([\w\s\*]+?)\s+(\w+)\s*\(([^)]*)\)\s*$", line)
+        if m is None:
+            m = re.match(r"^([\w\s\*]+?)\s+(\w+)\s*\(([^)]*)\)\s*\{\s*$", line)
+
+        if m is None:
+            continue
+
+        ret_type = m.group(1).strip()
+        func_name = m.group(2).strip()
+        param_str = m.group(3).strip()
+
+        if func_name in bad or ret_type.rstrip("* ") in bad:
+            continue
+
+        params = parse_params(param_str)
+        return func_name, ret_type, params
+
+    return None
 
 # ---------------------------------------------------------------------------
 # Main

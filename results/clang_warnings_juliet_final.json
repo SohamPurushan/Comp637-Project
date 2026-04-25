@@ -1,0 +1,222 @@
+[
+  {
+    "warning_id": "W9BC930D",
+    "file": "data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+    "line": 26,
+    "column": 47,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  21 {",
+      "  22     {",
+      "  23         twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  24         /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  25          * thus causing a NPD */",
+      "  26         if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  27         {",
+      "  28             printLine(\"intOne == 5\");",
+      "  29         }",
+      "  30     }",
+      "  31 }"
+    ]
+  },
+  {
+    "warning_id": "WFE9593F",
+    "file": "data/juliet/104533-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_02.c",
+    "line": 28,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  23     {",
+      "  24         {",
+      "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  27              * thus causing a NPD */",
+      "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  29             {",
+      "  30                 printLine(\"intOne == 5\");",
+      "  31             }",
+      "  32         }",
+      "  33     }"
+    ]
+  },
+  {
+    "warning_id": "W08C93E3",
+    "file": "data/juliet/104534-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_03.c",
+    "line": 28,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  23     {",
+      "  24         {",
+      "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  27              * thus causing a NPD */",
+      "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  29             {",
+      "  30                 printLine(\"intOne == 5\");",
+      "  31             }",
+      "  32         }",
+      "  33     }"
+    ]
+  },
+  {
+    "warning_id": "WA83C2A7",
+    "file": "data/juliet/104535-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_04.c",
+    "line": 34,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  29     {",
+      "  30         {",
+      "  31             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  32             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  33              * thus causing a NPD */",
+      "  34             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  35             {",
+      "  36                 printLine(\"intOne == 5\");",
+      "  37             }",
+      "  38         }",
+      "  39     }"
+    ]
+  },
+  {
+    "warning_id": "WA5B2DB8",
+    "file": "data/juliet/104536-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_05.c",
+    "line": 34,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  29     {",
+      "  30         {",
+      "  31             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  32             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  33              * thus causing a NPD */",
+      "  34             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  35             {",
+      "  36                 printLine(\"intOne == 5\");",
+      "  37             }",
+      "  38         }",
+      "  39     }"
+    ]
+  },
+  {
+    "warning_id": "W13FBEF7",
+    "file": "data/juliet/104537-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_06.c",
+    "line": 33,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  28     {",
+      "  29         {",
+      "  30             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  31             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  32              * thus causing a NPD */",
+      "  33             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  34             {",
+      "  35                 printLine(\"intOne == 5\");",
+      "  36             }",
+      "  37         }",
+      "  38     }"
+    ]
+  },
+  {
+    "warning_id": "W9CC5C9D",
+    "file": "data/juliet/104538-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_07.c",
+    "line": 33,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  28     {",
+      "  29         {",
+      "  30             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  31             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  32              * thus causing a NPD */",
+      "  33             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  34             {",
+      "  35                 printLine(\"intOne == 5\");",
+      "  36             }",
+      "  37         }",
+      "  38     }"
+    ]
+  },
+  {
+    "warning_id": "WE408412",
+    "file": "data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+    "line": 41,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  36     {",
+      "  37         {",
+      "  38             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  39             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  40              * thus causing a NPD */",
+      "  41             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  42             {",
+      "  43                 printLine(\"intOne == 5\");",
+      "  44             }",
+      "  45         }",
+      "  46     }"
+    ]
+  },
+  {
+    "warning_id": "WE140ADC",
+    "file": "data/juliet/104540-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_09.c",
+    "line": 28,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  23     {",
+      "  24         {",
+      "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  27              * thus causing a NPD */",
+      "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  29             {",
+      "  30                 printLine(\"intOne == 5\");",
+      "  31             }",
+      "  32         }",
+      "  33     }"
+    ]
+  },
+  {
+    "warning_id": "W96A6FC4",
+    "file": "data/juliet/104541-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_10.c",
+    "line": 28,
+    "column": 51,
+    "message": "Access to field 'intOne' results in a dereference of a null pointer (loaded from variable 'twoIntsStructPointer')",
+    "checker": "core.NullDereference",
+    "category": "Logic error",
+    "code_context": [
+      "  23     {",
+      "  24         {",
+      "  25             twoIntsStruct *twoIntsStructPointer = NULL;",
+      "  26             /* FLAW: Using a single & in the if statement will cause both sides of the expression to be evaluated",
+      "  27              * thus causing a NPD */",
+      "  28             if ((twoIntsStructPointer != NULL) & (twoIntsStructPointer->intOne == 5))",
+      "  29             {",
+      "  30                 printLine(\"intOne == 5\");",
+      "  31             }",
+      "  32         }",
+      "  33     }"
+    ]
+  }
+]
