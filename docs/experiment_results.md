@@ -67,8 +67,6 @@ The current evaluation has several important limitations:
 4. **Symbolic execution coverage is still limited.** Although symbolic execution is now integrated and operational, broader coverage and larger-scale evaluation remain future work.
 5. **Current results are preliminary.** These experiments demonstrate feasibility and early promise, but not yet a full benchmark-scale evaluation.
 
-## Suggested Interpretation in the Paper
-
-A fair summary is:
+## Summary
 
 > The pilot experiment provides initial evidence that LLM triage can reduce false positives relative to analyzer-only warnings. The Juliet small-subset experiment demonstrates that the full hybrid pipeline can run end to end on benchmark-derived CWE-476 cases. However, the current Juliet subset is not balanced, so larger or more diverse benchmark slices are needed for stronger empirical conclusions.
