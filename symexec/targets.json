@@ -1,48 +1,20 @@
 [
   {
-    "warning_id": "W9552F0E",
-    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
-    "target_line": 5,
-    "function_name": "main",
-    "return_type": "int",
+    "warning_id": "W9BC930D",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+    "target_line": 26,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_01_bad",
+    "return_type": "void",
     "arguments": []
   },
   {
-    "warning_id": "W3AFD776",
-    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
-    "target_line": 19,
-    "function_name": "main",
-    "return_type": "int",
-    "arguments": [
-      {
-        "name": "argc",
-        "kind": "int"
-      }
-    ]
-  },
-  {
-    "warning_id": "W43E668A",
-    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
-    "target_line": 17,
-    "function_name": "execute",
-    "return_type": "int",
+    "warning_id": "WE408412",
+    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+    "target_line": 41,
+    "function_name": "CWE476_NULL_Pointer_Dereference__binary_if_08_bad",
+    "return_type": "void",
     "arguments": []
-  },
-  {
-    "warning_id": "W3A668C4",
-    "source_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
-    "target_line": 23,
-    "function_name": "main",
-    "return_type": "int",
-    "arguments": [
-      {
-        "name": "argc",
-        "kind": "int"
-      }
-    ]
   }
 ]

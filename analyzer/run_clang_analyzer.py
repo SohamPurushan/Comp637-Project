@@ -117,12 +117,37 @@ def parse_text_diagnostics(stderr_text: str, c_file: Path, counter_start: int) -
     return records
 
 
-def analyze_file(c_file: Path, plist_dir: Path) -> Tuple[Optional[dict], str, str, int]:
+def analyze_file(c_file: Path, plist_dir: Path):
     plist_out = plist_dir / (c_file.stem + ".plist")
 
+    # Build command
+    # -Xclang -analyzer-checker=...
+    # enables specific checkers
     checker_args: List[str] = []
     for checker in ENABLED_CHECKERS:
         checker_args += ["-Xclang", f"-analyzer-checker={checker}"]
+
+    # Juliet files depend on support headers like std_testcase.h
+    extra_include_args: List[str] = []
+    if JULIET_DIR in c_file.parents:
+        # Each extracted Juliet package looks like:
+        #   data/juliet/<package-id>/src/testcases/...
+        # and its support headers live in:
+        #   data/juliet/<package-id>/src/testcasesupport
+        juliet_pkg_root = None
+        for parent in c_file.parents:
+            if parent.parent == JULIET_DIR:
+                juliet_pkg_root = parent
+                break
+
+        if juliet_pkg_root is not None:
+            candidate_include_dirs = [
+                juliet_pkg_root / "src" / "testcasesupport",
+                juliet_pkg_root / "testcasesupport",
+            ]
+            for inc in candidate_include_dirs:
+                if inc.exists():
+                    extra_include_args += ["-I", str(inc)]
 
     cmd = [
         CLANG_BIN,
@@ -133,6 +158,9 @@ def analyze_file(c_file: Path, plist_dir: Path) -> Tuple[Optional[dict], str, st
         "-Xclang", "-analyzer-output=plist",
         "-o", str(plist_out),
         *checker_args,
+        "-Xclang", "-analyzer-config",
+        "-Xclang", "aggressive-binary-operation-simplification=true",
+        *extra_include_args,
         str(c_file),
     ]
 
@@ -147,7 +175,6 @@ def analyze_file(c_file: Path, plist_dir: Path) -> Tuple[Optional[dict], str, st
             plist_data = None
 
     return plist_data, result.stdout, result.stderr, result.returncode
-
 
 def plist_to_warnings(
     plist_data: dict,

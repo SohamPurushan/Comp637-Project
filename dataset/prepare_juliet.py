@@ -59,46 +59,83 @@ def extract_cwe476(zip_path: Path, out_dir: Path) -> None:
     if out_dir.exists() and any(out_dir.rglob("*.c")):
         print(f"  Already extracted: {out_dir}")
         return
+
     out_dir.mkdir(parents=True, exist_ok=True)
-    print(f"  Extracting CWE476 files …")
+    print("  Extracting CWE476 files …")
+
     with zipfile.ZipFile(zip_path, "r") as zf:
-        members = [
-            m for m in zf.namelist()
+        names = zf.namelist()
+
+        # 1) Extract CWE-476 testcase files
+        cwe_members = [
+            m for m in names
             if CWE476_DIR_NAME in m and (m.endswith(".c") or m.endswith(".cpp") or m.endswith(".h"))
         ]
-        if not members:
+
+        # 2) Extract Juliet support files that the testcases include
+        support_members = [
+            m for m in names
+            if (
+                "testcasesupport/" in m
+                or m.endswith("/std_testcase.h")
+                or m.endswith("/std_testcase_io.h")
+                or m.endswith("/io.c")
+                or m.endswith("/io.h")
+            )
+        ]
+
+        members = sorted(set(cwe_members + support_members))
+
+        if not cwe_members:
             print(
                 f"  WARNING: No files matching '{CWE476_DIR_NAME}' found in archive.\n"
                 "  Archive structure may differ. Check the ZIP and update CWE476_DIR_NAME."
             )
+
         for member in members:
             zf.extract(member, out_dir)
-    print(f"  Extracted {len(members)} files.")
 
+    print(f"  Extracted {len(cwe_members)} CWE476 files and {len(support_members)} support files.")
 
-def classify_file(path: Path) -> int:
-    """
-    Juliet naming convention:
-      *_good*.c  or  *_00.c  → label 0 (no bug)
-      *_bad*.c   or  *_01.c  → label 1 (bug present)
-    """
-    name = path.name.lower()
-    if "_good" in name or name.endswith("_00.c"):
-        return 0
-    if "_bad" in name or "_01" in name:
-        return 1
-    # Helper files / shared infrastructure — exclude from benchmark
-    return -1
+def classify_file(path_str):
+    p = str(path_str).replace("\\", "/")
 
+    # Only label actual CWE476 testcase source files
+    if "CWE476_NULL_Pointer_Dereference" not in p:
+        return None
 
-def build_ground_truth(juliet_dir: Path) -> dict:
-    gt: dict = {}
-    for c_file in sorted(juliet_dir.rglob("*.c")):
+    if "/testcasesupport/" in p:
+        return None
+
+    if not p.endswith(".c"):
+        return None
+
+    return 1
+
+def build_ground_truth(root: Path):
+    gt = {}
+    bug_count = 0
+    safe_count = 0
+
+    for c_file in sorted(root.rglob("*.c")):
         label = classify_file(c_file)
-        if label == -1:
-            continue  # skip support/helper files
-        rel = str(c_file.relative_to(PROJECT_ROOT))
-        gt[rel] = {"label": label, "suite": "juliet_cwe476"}
+        if label is None:
+            continue
+
+        key = str(c_file.relative_to(PROJECT_ROOT)).replace("\\", "/")
+        gt[key] = {
+            "label": label,
+            "suite": "juliet_cwe476",
+        }
+
+        if label == 1:
+            bug_count += 1
+        elif label == 0:
+            safe_count += 1
+
+    print(f"Wrote ground truth for {len(gt)} files → {root / 'ground_truth.json'}")
+    print(f"  Bug files  : {bug_count}")
+    print(f"  Safe files : {safe_count}")
     return gt
 
 

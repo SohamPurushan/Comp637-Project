@@ -1,54 +1,28 @@
 [
   {
-    "warning_id": "W9552F0E",
-    "status": "feasible",
-    "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: error: example_null_03.c:5: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 7\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/example_null_03.c",
-    "target_line": 5,
+    "warning_id": "W9BC930D",
+    "status": "timeout",
+    "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_01.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104532-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_01.c",
+    "target_line": 26,
     "expected_bug_type": "CWE-476",
     "focus_variables": [
-      "p"
-    ],
-    "focus_conditions": [
-      "p == NULL"
-    ]
-  },
-  {
-    "warning_id": "W3AFD776",
-    "status": "feasible",
-    "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: warning: undefined reference to function: printf\nklee: error: null_deref_@alias-bad.c:19: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 134\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
-    "target_line": 19,
-    "expected_bug_type": "CWE-476",
-    "focus_variables": [
-      "tab"
+      "twoIntsStructPointer"
     ],
     "focus_conditions": []
   },
   {
-    "warning_id": "W43E668A",
-    "status": "feasible",
-    "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: error: null_deref_scope.c:17: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 20\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
-    "target_line": 17,
+    "warning_id": "WE408412",
+    "status": "timeout",
+    "details": "Symexec stage failed: LLVM bitcode compilation failed for /Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c\nSTDOUT:\n\nSTDERR:\nCWE476_NULL_Pointer_Dereference__binary_if_08.c:16:10: fatal error: 'std_testcase.h' file not found\n#include \"std_testcase.h\"\n         ^~~~~~~~~~~~~~~~\n1 error generated.\n",
+    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/juliet/104539-v1.0.0/src/testcases/CWE476_NULL_Pointer_Dereference/CWE476_NULL_Pointer_Dereference__binary_if_08.c",
+    "target_line": 41,
     "expected_bug_type": "CWE-476",
     "focus_variables": [
-      "b"
+      "twoIntsStructPointer"
     ],
     "focus_conditions": [
-      "b == NULL"
+      "twoIntsStructPointer != NULL"
     ]
-  },
-  {
-    "warning_id": "W3A668C4",
-    "status": "feasible",
-    "details": "klee: output directory is \"/work/klee-out\"\nklee: using stp solver backend\nklee: sat solver: minisat\nklee: deterministic allocator: using quarantine queue size 8\nklee: deterministic allocator: globals (start-address=0x7ffd792e1000 size=10 gib)\nklee: deterministic allocator: constants (start-address=0x7ffaf92e1000 size=10 gib)\nklee: deterministic allocator: heap (start-address=0x7efaf92e1000 size=1024 gib)\nklee: deterministic allocator: stack (start-address=0x7edaf92e1000 size=128 gib)\nklee: warning: undefined reference to function: fprintf\nklee: warning: undefined reference to variable: stdout\nklee: error: null_deref-bad.c:23: memory error: null page access\nklee: note: now ignoring this error at this location\n\nklee: done: total instructions = 16\nklee: done: completed paths = 0\nklee: done: partially completed paths = 1\nklee: done: generated tests = 1",
-    "target_file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/pilot/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
-    "target_line": 23,
-    "expected_bug_type": "CWE-476",
-    "focus_variables": [
-      "ptr"
-    ],
-    "focus_conditions": []
   }
 ]
