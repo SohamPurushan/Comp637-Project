@@ -1,0 +1,292 @@
+[
+  {
+    "warning_id": "warn_6d2faba1e035",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149049-v1.0.0/src/mem-bad2.c",
+    "line": 21,
+    "column": 3,
+    "message": "Attempt to release already released memory",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_388eee922f57",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149065-v2.0.0/src/gets1-bad.c",
+    "line": 37,
+    "column": 5,
+    "message": "Call to function 'gets' is extremely insecure as it can always result in a buffer overflow",
+    "checker": "security.insecureAPI.gets",
+    "category": "security",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_043a3e1c3886",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149071-v1.0.0/src/mem1-bad.c",
+    "line": 40,
+    "column": 2,
+    "message": "Potential leak of memory pointed to by 'p'",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_d793d18f3ffa",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149073-v1.0.0/src/mem2-bad.c",
+    "line": 48,
+    "column": 3,
+    "message": "Value stored to 'p' is never read",
+    "checker": "deadcode.DeadStores",
+    "category": "deadcode",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_0ce55e1dfa52",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149073-v1.0.0/src/mem2-bad.c",
+    "line": 50,
+    "column": 9,
+    "message": "Potential leak of memory pointed to by 'p'",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_e6a531b87819",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149075-v1.0.0/src/mem3-bad.c",
+    "line": 41,
+    "column": 2,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_31d514aee7d9",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149085-v1.0.0/src/heapinspection.c",
+    "line": 46,
+    "column": 3,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_60f912819f7f",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149089-v2.0.0/src/uninitialized_variable-bad.c",
+    "line": 16,
+    "column": 29,
+    "message": "The left operand of '+' is a garbage value",
+    "checker": "core.UndefinedBinaryOperatorResult",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_4f518e3f5a26",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149091-v3.0.0/src/Unintentional_pointer_scaling-bad.c",
+    "line": 20,
+    "column": 2,
+    "message": "2nd function call argument is an uninitialized value",
+    "checker": "core.CallAndMessage",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_50b3ad56e3f5",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149103-v1.0.0/src/race_fctptr_bad.c",
+    "line": 42,
+    "column": 7,
+    "message": "Call to 'open' requires a 3rd argument when the 'O_CREAT' flag is set",
+    "checker": "unix.API",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_62a7cc3141fc",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149109-v2.0.0/src/dble_free_loop-bad.c",
+    "line": 54,
+    "column": 31,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_1879a2d97ce6",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149123-v1.0.0/src/heap_overflow_array.c",
+    "line": 28,
+    "column": 9,
+    "message": "Potential memory leak",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_171d547067c8",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149147-v2.0.0/src/null_deref_@alias-bad.c",
+    "line": 19,
+    "column": 12,
+    "message": "Dereference of null pointer",
+    "checker": "core.NullDereference",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_a72ae3f72984",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149149-v1.0.0/src/null_deref_scope.c",
+    "line": 17,
+    "column": 13,
+    "message": "Dereference of null pointer (loaded from variable 'b')",
+    "checker": "core.NullDereference",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_f5fc3951153a",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149179-v1.0.0/src/memory_leak_container-bad.c",
+    "line": 28,
+    "column": 3,
+    "message": "2nd function call argument is an uninitialized value",
+    "checker": "core.CallAndMessage",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_566d837f1579",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149189-v1.0.0/src/memory_leak_basic-bad.c",
+    "line": 27,
+    "column": 2,
+    "message": "Potential leak of memory pointed to by 'buff'",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_77f024399c74",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149203-v1.0.0/src/UseAfterFree_container-bad.c",
+    "line": 44,
+    "column": 24,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_30cec51985ff",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149207-v1.0.0/src/UninitializedVariable_DataType-bad.c",
+    "line": 20,
+    "column": 6,
+    "message": "Branch condition evaluates to a garbage value",
+    "checker": "core.uninitialized.Branch",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_755de5d9d22e",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149217-v3.0.0/src/double_free-bad.c",
+    "line": 16,
+    "column": 5,
+    "message": "Attempt to release already released memory",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_f5955b8fb21d",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149221-v1.0.0/src/use_after_free_scope.c",
+    "line": 35,
+    "column": 3,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_feb72b01f1e1",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149223-v3.0.0/src/use_after_free_container-bad.c",
+    "line": 38,
+    "column": 23,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_71f5466acf35",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149225-v3.0.0/src/use_after_free_@buffer-bad.c",
+    "line": 27,
+    "column": 9,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_23d72253f9f1",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149229-v1.0.0/src/double_free-bad.c",
+    "line": 31,
+    "column": 2,
+    "message": "Attempt to release already released memory",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_2939c7eaa78c",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149239-v1.0.0/src/use_after_free_@buffer.c",
+    "line": 28,
+    "column": 9,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_3e2d368bbe06",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149239-v2.0.0/src/use_after_free_@buffer-bad.c",
+    "line": 28,
+    "column": 9,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_c99674b48ccb",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149243-v3.0.0/src/null_deref_local_flow-bad.c",
+    "line": 23,
+    "column": 8,
+    "message": "Dereference of null pointer (loaded from variable 'p')",
+    "checker": "core.NullDereference",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_b2c6d9442a48",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149245-v2.0.0/src/null_deref-bad.c",
+    "line": 23,
+    "column": 6,
+    "message": "Dereference of null pointer (loaded from variable 'ptr')",
+    "checker": "core.NullDereference",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_b681139be777",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149247-v1.0.0/src/use_after_free_@alias.c",
+    "line": 28,
+    "column": 13,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_5f3bb392850a",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/vulnerable/149247-v2.0.0/src/use_after_free_@alias-bad.c",
+    "line": 29,
+    "column": 14,
+    "message": "Use of memory after it is released",
+    "checker": "unix.Malloc",
+    "category": "unix",
+    "code_context": []
+  }
+]

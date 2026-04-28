@@ -1,0 +1,82 @@
+[
+  {
+    "warning_id": "warn_eb4d09691045",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149104-v1.0.0/src/race_fctptr_good.c",
+    "line": 44,
+    "column": 7,
+    "message": "Call to 'open' requires a 3rd argument when the 'O_CREAT' flag is set",
+    "checker": "unix.API",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_df99f39dc9d7",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149116-v1.0.0/src/hardcoded_pass_buffer_good.c",
+    "line": 24,
+    "column": 2,
+    "message": "Address of stack memory associated with local variable 'pass' returned to caller",
+    "checker": "core.StackAddressEscape",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_5aff22b18071",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149120-v1.0.0/src/hardcoded_pass_local_flow_good.c",
+    "line": 23,
+    "column": 2,
+    "message": "Address of stack memory associated with local variable 'pass' returned to caller",
+    "checker": "core.StackAddressEscape",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_9935ed3f13a2",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149180-v2.0.0/src/memory_leak_container-good.c",
+    "line": 28,
+    "column": 3,
+    "message": "2nd function call argument is an uninitialized value",
+    "checker": "core.CallAndMessage",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_1217a66ed2a1",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149232-v1.0.0/src/race_basic_good.c",
+    "line": 31,
+    "column": 7,
+    "message": "Call to 'open' requires a 3rd argument when the 'O_CREAT' flag is set",
+    "checker": "unix.API",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_c58c8020e0ca",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149234-v2.0.0/src/race_stat_fctptr-good.c",
+    "line": 72,
+    "column": 11,
+    "message": "Call to 'open' requires a 3rd argument when the 'O_CREAT' flag is set",
+    "checker": "unix.API",
+    "category": "unix",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_721c9b800c96",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149244-v1.0.0/src/null_deref_local_flow_good.c",
+    "line": 22,
+    "column": 8,
+    "message": "Dereference of null pointer (loaded from variable 'p')",
+    "checker": "core.NullDereference",
+    "category": "core",
+    "code_context": []
+  },
+  {
+    "warning_id": "warn_4fff9db2a81b",
+    "file": "/Users/liuhenry/Documents/COMP 637/project/project final/Comp637-Project/data/sard/secure/149244-v1.0.0/src/null_deref_local_flow_good.c",
+    "line": 23,
+    "column": 5,
+    "message": "Value stored to 'k' is never read",
+    "checker": "deadcode.DeadStores",
+    "category": "deadcode",
+    "code_context": []
+  }
+]

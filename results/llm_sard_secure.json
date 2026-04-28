@@ -1,0 +1,111 @@
+[
+  {
+    "warning_id": "warn_eb4d09691045",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [],
+    "branch_conditions": [
+      "access(fName, W_OK",
+      "fd"
+    ],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_df99f39dc9d7",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [
+      "argv",
+      "getDefaultPassword"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_5aff22b18071",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [
+      "argv",
+      "getDefaultPassword"
+    ],
+    "branch_conditions": [],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_9935ed3f13a2",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [
+      "FIX",
+      "sizeof"
+    ],
+    "branch_conditions": [
+      "buffer.mem"
+    ],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_1217a66ed2a1",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [],
+    "branch_conditions": [
+      "access(fName, W_OK",
+      "fd"
+    ],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_c58c8020e0ca",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [
+      "FIX"
+    ],
+    "branch_conditions": [
+      "fd != -1"
+    ],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_721c9b800c96",
+    "llm_decision": "likely_true",
+    "confidence": 0.95,
+    "predicted_bug_type": "CWE-476",
+    "reasoning": "The warning indicates a null-pointer dereference and the nearby context does not show a protective guard before the dereference.",
+    "relevant_variables": [
+      "p"
+    ],
+    "branch_conditions": [
+      "*p"
+    ],
+    "suspicious_locations": []
+  },
+  {
+    "warning_id": "warn_4fff9db2a81b",
+    "llm_decision": "uncertain",
+    "confidence": 0.5,
+    "predicted_bug_type": null,
+    "reasoning": "The mock triage logic does not have a specific rule for this checker, so the result remains uncertain.",
+    "relevant_variables": [
+      "p"
+    ],
+    "branch_conditions": [
+      "*p"
+    ],
+    "suspicious_locations": []
+  }
+]

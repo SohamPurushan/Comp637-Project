@@ -1,14 +1,33 @@
 import json
 import re
+import argparse
 from pathlib import Path
 from typing import List
 
-from config import DEFAULT_ANALYZER_OUTPUT, DEFAULT_TRIAGE_OUTPUT, TARGET_BUG_CLASS
+from config import TARGET_BUG_CLASS
 from schemas import LLMTriageRecord, WarningRecord
 
 
+parser = argparse.ArgumentParser(description="Triage Clang static analyzer warnings.")
+parser.add_argument(
+    "--input",
+    default="results/clang_warnings.json",
+    help="Path to analyzer warning JSON file.",
+)
+parser.add_argument(
+    "--output",
+    default="results/triaged_warnings.json",
+    help="Path to write triage output JSON file.",
+)
+args = parser.parse_args()
+
+INPUT_FILE = Path(args.input)
+OUTPUT_FILE = Path(args.output)
+
+
 def load_warnings() -> List[WarningRecord]:
-    warning_path = Path(DEFAULT_ANALYZER_OUTPUT)
+    warning_path = INPUT_FILE
+
     if not warning_path.exists():
         raise FileNotFoundError(
             f"Analyzer output not found: {warning_path}. Run run_clang.py first."
@@ -23,7 +42,7 @@ def extract_context(source_file: str, warning_line: int, radius: int = 5) -> str
     if not path.exists():
         return ""
 
-    lines = path.read_text().splitlines()
+    lines = path.read_text(errors="replace").splitlines()
 
     start = max(0, warning_line - 1 - radius)
     end = min(len(lines), warning_line - 1 + radius + 1)
@@ -69,15 +88,12 @@ Code context:
 
 
 def extract_pointer_names(context: str) -> List[str]:
-    # Very simple heuristic for now: collect candidate pointer-ish variable names
     names = set()
 
-    # Match declarations like: int *p = NULL; or char* buf;
     decl_pattern = re.compile(r"\*\s*([A-Za-z_][A-Za-z0-9_]*)")
     for match in decl_pattern.finditer(context):
         names.add(match.group(1))
 
-    # Match dereferences like: *p = ...
     deref_pattern = re.compile(r"\*([A-Za-z_][A-Za-z0-9_]*)")
     for match in deref_pattern.finditer(context):
         names.add(match.group(1))
@@ -148,10 +164,12 @@ def main() -> None:
     warnings = load_warnings()
     triage_results: List[LLMTriageRecord] = []
 
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+
     if not warnings:
-        DEFAULT_TRIAGE_OUTPUT.write_text("[]")
-        print(f"No warnings found in {DEFAULT_ANALYZER_OUTPUT}")
-        print(f"Wrote empty triage output to {DEFAULT_TRIAGE_OUTPUT}")
+        OUTPUT_FILE.write_text("[]")
+        print(f"No warnings found in {INPUT_FILE}")
+        print(f"Wrote empty triage output to {OUTPUT_FILE}")
         return
 
     for warning in warnings:
@@ -166,11 +184,11 @@ def main() -> None:
         triage_record = mock_llm_triage(warning, context)
         triage_results.append(triage_record)
 
-    DEFAULT_TRIAGE_OUTPUT.write_text(
+    OUTPUT_FILE.write_text(
         json.dumps([record.model_dump() for record in triage_results], indent=2)
     )
 
-    print(f"Wrote {len(triage_results)} triage record(s) to {DEFAULT_TRIAGE_OUTPUT}")
+    print(f"Wrote {len(triage_results)} triage record(s) to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

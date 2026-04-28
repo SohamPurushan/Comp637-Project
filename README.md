@@ -168,3 +168,22 @@ These files are intended to preserve the current pilot and Juliet-small-subset e
 ## Target bug class
 
 CWE-476: Null Pointer Dereference (C/C++)
+
+
+## SARD Evaluation
+
+We added an additional public false-positive evaluation using NIST SARD C static-analyzer suites.
+
+Datasets used:
+- SARD vulnerable suite: 104 C source files
+- SARD secure suite: 106 C source files
+
+Static-analysis results:
+- Vulnerable suite: 29 Clang warnings
+- Secure suite: 8 Clang warnings
+
+LLM triage results:
+- Vulnerable suite: 4 likely_true, 25 uncertain, 0 likely_false
+- Secure suite: 1 likely_true, 7 uncertain, 0 likely_false
+
+The SARD secure suite provides false-positive candidate warnings because the programs are intended to be secure. The result shows that the current LLM triage logic is conservative: most warnings are labeled uncertain rather than likely_false.
